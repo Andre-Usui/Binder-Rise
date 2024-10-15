@@ -38,13 +38,6 @@ Currently, two official plugins are available:
     - TABS ORGANIZATION
       - Homepage Tab
         - Explain how the blog works and his objective as a project at first
-        - User can edit Home page 
-      - Goals Tab
-        - Markdown goals that user adds goals to show to employeers achievements
-        - User adds your own goals
-        - Teacher (Mentor) adds goals 
-        - Save dates of creation and conclusion 
-        - Set deadline
       - Disciplines material Tab
         - Many tabs for many disciplines
         - Add note
@@ -108,9 +101,6 @@ Currently, two official plugins are available:
 # Why should i use Binder Rise
 
   - You are studying something? You know that you have to write everything you can to help you memorize any content, huh?.
-  - I've always have a notebook on my side because of this. At first, that was suficient for me. Now that i have 3 notebooks,
-  - completely unorganized, with varius contents of variable references. I thought that i've need a new notebook just to 
-  - organize and have a better way to search my notings. 
+  - I've always have a notebook on my side because of this. At first, that was suficient for me. Now that i have 3 notebooks, completely unorganized, with various contents of variable references. I thought that i've need a new notebook just to organize and have a better way to search my notings. 
 
-  - Then i create this app. Here you can add your contents, edit then, organize, reorganize, delete anything, and style it as 
-  - you want. You can create more and more disciplines
+  - Then i create this app. Here you can add your contents, edit then, organize, reorganize, delete anything, and style it as you want. You can create more and more disciplines
