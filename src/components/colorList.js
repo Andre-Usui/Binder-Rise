@@ -1,0 +1,18 @@
+export const colorList = [
+  {name: "White", value: "#F5EFFF"}, 
+  {name: "Gray", value: "#E5D9F2"},
+  {name: "Carbon", value: "#606676"},
+  {name: "Black", value: "#070707"}, 
+  {name: "Green", value: "#C6D57E"}, 
+  {name: "Light Green", value: "#C9E4C5"}, 
+  {name: "Red", value: "#FF4C4C"}, 
+  {name: "Orange", value: "#F6995C"}, 
+  {name: "Yellow", value: "#FDFFAB"}, 
+  {name: "Blue", value: "#295F98"},
+  {name: "Cyan", value: "#7EACB5"}, 
+  {name: "Aqua", value: "#D2E0FB"},   
+  {name: "Pink", value: "#FF90BC"}, 
+  {name: "Purple", value: "#756AB6"}, 
+  {name: "Brown", value: "#B99470"}, 
+  {name: "Chocolate", value: "#705C53"}, 
+]
