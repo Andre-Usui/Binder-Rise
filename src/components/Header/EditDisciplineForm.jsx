@@ -10,7 +10,7 @@ const initialState = {
 
 function formDisciplineReducer(state, action) {
   switch (action.type) {
-    case 'changeDiscipline': {
+    case 'changeTitle': {
       return {
         ...state,
         title: action.title,
@@ -95,7 +95,7 @@ function EditDisciplineForm({ id, discipline, handle }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === 'title') {
-      dispatch({ type: 'changeDiscipline', title: value });
+      dispatch({ type: 'changeTitle', title: value });
     } else if (name === 'bgColor') {
       dispatch({ type: 'changeBgColor', bgColor: value });
     } else if (name === 'color') {

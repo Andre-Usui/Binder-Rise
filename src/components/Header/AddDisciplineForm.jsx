@@ -5,8 +5,8 @@ import { colorList } from "../colorList.js"
 const initialState = {
   title: '',
   pageName: '',
-  bgColor: 'Black',
-  color: 'Black',
+  bgColor: '',
+  color: '',
 };
 
 function formDisciplineReducer(state, action) {

@@ -11,13 +11,14 @@
   --alt-color2: #565656;
   --main-font-size: 1rem;
   --main-h1-size: 2rem;
+  --main-font-1: 'Lato', Arial, Helvetica, sans-serif;
+  --main-font-2: "Playwrite CU", cursive;
   --pattern-header-1: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='31.25' height='20' patternTransform='scale(3) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(69, 97%, 86%, 1)'/><path d='M.162 1.593c-.054 0-.108.008-.162.009v8.58c.055-.002.107-.017.163-.017 1.395 0 2.68.567 3.62 1.598l2.049 2.248a13.497 13.497 0 0 0 9.954 4.396c3.78 0 7.408-1.603 9.954-4.396l2.051-2.25a4.832 4.832 0 0 1 3.459-1.581V1.6a13.493 13.493 0 0 0-9.794 4.388l-2.05 2.25a4.844 4.844 0 0 1-3.62 1.597 4.84 4.84 0 0 1-3.619-1.598L10.118 5.99A13.498 13.498 0 0 0 .162 1.593z'  stroke-width='6' stroke='none' fill='hsla(52, 100%, 81%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
   --pattern-header-2: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='31.25' height='20' patternTransform='scale(3) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 0%, 0)'/><path d='M.162 1.593c-.054 0-.108.008-.162.009v8.58c.055-.002.107-.017.163-.017 1.395 0 2.68.567 3.62 1.598l2.049 2.248a13.497 13.497 0 0 0 9.954 4.396c3.78 0 7.408-1.603 9.954-4.396l2.051-2.25a4.832 4.832 0 0 1 3.459-1.581V1.6a13.493 13.493 0 0 0-9.794 4.388l-2.05 2.25a4.844 4.844 0 0 1-3.62 1.597 4.84 4.84 0 0 1-3.619-1.598L10.118 5.99A13.498 13.498 0 0 0 .162 1.593z'  stroke-width='6' stroke='none' fill='hsla(52, 100%, 81%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
 }
 
 * {
   box-sizing: border-box;
-
 }
 
 body {
@@ -29,7 +30,7 @@ body {
   color: var(--main-color);
   box-sizing: border-box;
   overflow-x: hidden;
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-family: var(--main-font-1);
 
 
 }
@@ -65,11 +66,15 @@ body {
 /******************/
 
 .headerBox {
-  min-height: 20vh;
+  height: 100%;
   width: 100%;
   background-image: var(--pattern-header-2);
   background-color: var(--main-palette);
   margin-bottom: 2vh;
+  display: grid;
+  gap: 0;
+  grid-auto-columns: auto;
+  justify-content: space-between;
   box-sizing: border-box;
   overflow: visible;
   position: relative;
@@ -79,7 +84,7 @@ body {
   margin: 0 0 0 4rem;
   color: var(--main-palette-4);
   font-size: 4rem;
-  font-family: "Playwrite CU", cursive;
+  font-family: var(--main-font-2);
   font-style: oblique;
   z-index: 1;
 }
@@ -112,7 +117,6 @@ body {
 .headerBtnOption {
   height: 2rem;
   width: 2rem;
-
   background-image: url(/options-icon.svg);
   background-color: unset;
   background-size: cover;
@@ -127,7 +131,7 @@ body {
 .headerBtnClip {}
 
 .headerBtnOuter {
-  height: 2.3rem;
+  height: 2.7rem;
   min-width: 3.3rem;
   background-color: var(--main-palette-4);
   display: flex;
@@ -141,7 +145,7 @@ body {
 }
 
 .headerBtn {
-  height: 2rem;
+  height: 2.2rem;
   min-width: 3rem;
   padding: 0 4rem 0 3rem;
   background-color: var(--main-palette-3);
@@ -149,8 +153,8 @@ body {
   clip-path: polygon(0% 100%, 2% 76%, 4% 51%, 6% 30%, 10% 10%, 15% 0%, 85% 0, 90% 10%, 94% 30%, 96% 51%, 98% 76%, 100% 100%);
   cursor: pointer;
   font-weight: bold;
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
+  font-family: var(--main-font-1);
+  font-size: 1.3rem;
 }
 
 .headerBtnBox {
@@ -188,7 +192,8 @@ body {
 }
 
 .headerBtnOuterPlus {
-  height: 2.3rem;
+  height: 3.4rem;
+  min-width: 3.4rem;
   background-color: var(--main-palette-4);
   display: flex;
   justify-self: flex-end;
@@ -200,8 +205,8 @@ body {
 }
 
 .headerBtnPlus {
-  height: 2rem;
-  min-width: 1rem;
+  height: 3rem;
+  min-width: 3rem;
   padding: 0 1rem 0 1rem;
   background-color: var(--main-palette-3);
   bottom: 0;
@@ -209,8 +214,8 @@ body {
   clip-path: polygon(0% 100%, 4% 76%, 8% 51%, 16% 25%, 32% 13%, 40% 10%, 60% 10%, 68% 13%, 84% 25%, 92% 51%, 96% 76%, 100% 100%);
   cursor: pointer;
   font-weight: bold;
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
+  font-family: var(--main-font-1);
+  font-size: 1.7rem;
 }
 
 /* disciplineForm */
@@ -219,9 +224,8 @@ body {
 .disciplineForm {
   min-height: 40vh;
   width: 100%;
-  padding: 1rem 0 1rem 5.1rem;
+  padding: 1rem 2rem 1rem 3rem;
   background-color: var(--main-palette-4);
-  transition: top 2s;
 }
 
 .disciplineFormBox {
@@ -231,6 +235,8 @@ body {
   margin: 2.5rem 1.5rem 2.5rem 0;
   justify-content: center;
   align-items: center;
+
+
 }
 
 .disciplineFormLabel {
@@ -241,10 +247,15 @@ body {
   margin-top: .5rem;
   padding: .5rem;
   width: 34rem;
+  border-radius: 5px;
+  border: .2rem solid var(--main-palette-2);
   outline: none;
+  transition: border 0.1s ease-in-out;
+  font-size: 1rem;
 }
 
 .disciplineFormInput:focus {
+  border: .3rem solid var(--main-palette-2);
   outline: none;
 }
 
@@ -252,6 +263,8 @@ body {
   width: 15rem;
   padding: .5rem;
   gap: 1rem;
+  border-radius: 5px;
+  border: .2rem solid var(--main-palette-2);
   overflow-y: scroll;
 }
 
@@ -270,12 +283,13 @@ body {
 
 
 .disciplineFormSubmitForm {
+  margin-left: 0rem;
+  padding: 0.3rem;
+  height: 2rem;
   width: 5rem;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
   background-color: var(--main-palette-1);
-  border: .1rem solid var(--main-palette-3);
-  border-radius: 3px;
+  border: .2rem solid var(--main-palette-2);
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -290,41 +304,50 @@ body {
 
 .feedBox {
   height: 100%;
-  width: 95vw;
-  margin-left: 3rem;
+  background-color: var(--main-palette-2);
+  width: 100%;
   position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-content: center;
-  align-items: stretch;
-  gap: 1rem;
+  align-items: center;
+  gap: 2rem;
 
 }
 
-.feedBox h1 {
-  margin: 1rem 3rem;
+.pageTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin: 1rem 0rem 0rem 0rem;
+  gap: 1rem;
+}
+
+.pageTop h1 {
+  margin: 0rem 0rem;
   padding: 0;
-  font-size: 3rem;
+  font-size: 5rem;
 }
 
 .pageBox {
+  margin: 0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
-  width: 100%;
 }
 
 .pageBox h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin: 0;
+  padding: 0;
 }
 
 .editPageBtn {
   height: 1.3rem;
   width: 1.3rem;
-  margin-right: 9rem;
+
   background-image: url(/edit-icon.svg);
   background-color: unset;
   background-size: cover;
@@ -344,34 +367,53 @@ body {
   cursor: pointer;
 }
 
+.pageContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .postItemUl {
+  width: 80%;
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .postItemLi {
-  width: 90%;
+  width: 100%;
   height: 100%;
-  margin-bottom: 1rem;
-  padding: .3rem 0rem 2rem 2rem;
+  margin-bottom: 2rem;
+  padding: 3rem;
   list-style-type: none;
-  background-color: var(--main-palette-3);
+  background-color: var(--main-palette-1);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .postItemTitle {
+  font-size: 2.5rem;
+  width: 90%;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
 .postItemReference {
-  font-size: .8rem;
-  margin-top: .3rem;
+  font-size: .9rem;
+  margin: .5rem 2rem 0 0rem;
   list-style-type: none;
 }
 
 .postItemContent {
   white-space: pre-wrap;
-  width: 95%;
+  margin: 2rem 0rem 2rem 2rem;
+  width: 90%;
 }
 
 .postItemDate {
@@ -388,28 +430,37 @@ body {
   min-width: 5rem;
   margin: 1rem 1rem 1rem 0;
   padding: .5rem;
-  background-color: var(--main-palette-1);
-  border: .1rem solid var(--main-palette-4);
-  border-radius: 5px;
+  background-color: var(--main-palette-4);
+  color: var(--main-palette-1);
+  border: .25rem solid var(--main-palette-2);
+  border-radius: 13px;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
+.newPostBox {
+  width: 90%;
+  height: 100%;
+  margin-bottom: 5rem;
+}
+
 .pages {
+  width: 80vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 0 7.3rem 2rem 2.7rem;
+  margin: 1rem 1rem;
 
 }
 
 .pageButton {
   padding: 0 1rem 0 1rem;
-  min-width: 3rem;
-  height: 1.9rem;
+  min-width: 5rem;
+  height: 2.1rem;
+  font-size: 1rem;
   text-decoration: none;
-  font-size: .8rem;
   background-color: var(--main-palette-1);
   border: .1rem solid var(--main-palette-4);
   border-radius: 5px;
@@ -427,21 +478,23 @@ body {
 
 .formPost {
   width: 90%;
-  margin: 1rem 2rem 1rem 2rem;
+  margin: auto;
+  background-color: var(--main-palette-3);
   border: .3rem solid var(--main-palette-4);
-  padding: 3rem 0 3rem 0rem;
+  padding: 3rem 2rem 3rem 2rem;
   border-radius: 10px;
 
 }
 
 .formPost>* {
-  margin: 2rem;
+  margin: 1rem;
 
 }
 
 .formPostLabel {
   margin-top: 3rem;
   margin-bottom: 5rem;
+  font-size: 1.3rem;
 }
 
 .formPostInput {
@@ -452,6 +505,7 @@ body {
   border-radius: 5px;
   border: .1rem solid var(--main-palette-4);
   transition: border 0.1s ease-in-out;
+  font-size: 1rem;
 
 }
 
@@ -470,7 +524,7 @@ body {
   border: .1rem solid var(--main-palette-4);
   outline: none;
   transition: border 0.1s ease-in-out;
-
+  font-size: 1rem;
 }
 
 .formPostText:focus {
@@ -489,11 +543,12 @@ body {
 
 .formPostBtn {
   margin-left: 0rem;
-  height: 3vh;
-  width: 10vw;
+  padding: 0.3rem;
+  height: 2rem;
+  width: 5rem;
   background-color: var(--main-palette-1);
-  border: .1rem solid var(--main-palette-4);
-  border-radius: 3px;
+  border: .2rem solid var(--main-palette-4);
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -501,9 +556,10 @@ body {
 /********************/
 
 .addPageForm {
+  width: 80vw;
   background-color: var(--main-palette-1);
-  padding: 1rem;
-  margin: 1rem 3rem 3rem 0;
+  padding: 2rem;
+  margin: 1rem 0rem 3rem 0;
   border-radius: 10px;
 }
 
@@ -563,6 +619,6 @@ body {
   margin-bottom: 2rem;
 }
 
-.footerLinks a{
+.footerLinks a {
   text-decoration: none;
 }

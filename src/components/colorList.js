@@ -1,5 +1,6 @@
 export const colorList = [
-  {name: "White", value: "#F5EFFF"}, 
+  {name:"Select a Color", value:""},
+  {name: "White", value: "#F5EFF1"}, 
   {name: "Gray", value: "#E5D9F2"},
   {name: "Carbon", value: "#606676"},
   {name: "Black", value: "#070707"}, 

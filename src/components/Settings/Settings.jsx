@@ -15,7 +15,8 @@ export default function Settings({ handle }) {
   return (
     <>
       <div className="settingsContainer">
-        <h1>Drag the items to rearrange the discipline's positions</h1>
+        <h1>Settings</h1>
+        <h3>Drag the items to rearrange the discipline's positions</h3>
         <div className="dragBox">
           <DragDisciplines />
           <Button
@@ -26,7 +27,7 @@ export default function Settings({ handle }) {
           <Download />
           <Upload />
         </div>
-        <h1>If you need some help to properly use the Binder Rise, you can find bellow some hints.</h1>
+        <h3>If you need some help to properly use the Binder Rise, you can find bellow some hints:</h3>
         <div className="helpContainer">
           <HelpItem
             title="How to create a Discipline's tab"

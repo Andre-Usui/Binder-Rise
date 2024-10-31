@@ -48,7 +48,7 @@ const feedReducer = (state, action) => {
     case 'toggleNewPostForm':
       return {
         ...state,
-        newPostForm: !state.newPostForm 
+        newPostForm: !state.newPostForm
       }
 
     case 'toggleNewPageForm':
@@ -213,7 +213,7 @@ function Feed({ discipline, discipline_id, setPage, page }) {
 
   const listFeed = state.posts.map(postItem => {
     return (
-      <React.Fragment key={"key: " + postItem.position}>
+      <React.Fragment key={postItem.position}>
         <li className="postItemLi">
           <h2 className="postItemTitle">{postItem.post_title}</h2>
           <ul>
@@ -223,10 +223,8 @@ function Feed({ discipline, discipline_id, setPage, page }) {
               </li>
             )}
           </ul>
-          <p className="postItemReference">{postItem.reference.name}</p>
           <p className="postItemContent">{postItem.content}</p>
           <p className="postItemDate">creation: {postItem.creation_date}</p>
-          {/*<p>edit: {postItem.edition_date}</p>*/}
           <div className="postItemBtnBox">
             <Button
               buttonClick={() => handleOnEditForm(postItem)}
@@ -250,17 +248,21 @@ function Feed({ discipline, discipline_id, setPage, page }) {
     )
   })
 
+  // #### return
+
   return (
     <div className="feedBox">
-      <h1>{state.fullDiscipline.discipline_name}</h1>
-      <div className="pageBox">
-        <h2>{state.pageName}</h2>
-        <Button
-          buttonClass="editPageBtn"
-          buttonClick={handleEditPageForm}
-          buttonName=""
-        />
-
+      <div className="pageTop">
+        <h1>{state.fullDiscipline.discipline_name}</h1>
+        <div className="pageBox">
+          <h2>•</h2>
+          <h2>{state.pageName}</h2>
+          <Button
+            buttonClass="editPageBtn"
+            buttonClick={handleEditPageForm}
+            buttonName=""
+          />
+        </div>
       </div>
       {state.editPageForm && (<EditPageForm
         posts={state.posts}
@@ -271,7 +273,7 @@ function Feed({ discipline, discipline_id, setPage, page }) {
         fetchPosts={fetchPosts}
       />)}
       {!state.editPageForm && (
-        <div>
+        <div className="pageContainer">
           <Pages
             pages={state.listPages}
             handleSetPage={handleSetPage}
@@ -283,6 +285,8 @@ function Feed({ discipline, discipline_id, setPage, page }) {
               discipline={state.fullDiscipline}
               onAdd={handleNewPage}
             />)}
+
+            
           <ul className="postItemUl">
 
             {listFeed}
@@ -293,19 +297,17 @@ function Feed({ discipline, discipline_id, setPage, page }) {
               buttonName="New Post" //TODO - if addPost is on, generate a postForm
               buttonClick={handleNewPostForm}
               buttonClass="postItemBtn"
+              style={{marginRight: '10vw'}}
             />
           </div>
-
-          {state.newPostForm && (
+            <div className="newPostBox">
+            {state.newPostForm && (
             <AddPostForm
               discipline_id={discipline_id}
               page={page}
               onAdd={handleNewPost}
             />)}
-
-
-
-
+            </div>
         </div>
       )}
     </div>

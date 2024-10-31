@@ -22,8 +22,8 @@ Currently, two official plugins are available:
     - BinderDB
     - Binder Rise
 
-- This blog is intendended to show my upgrades and knowledges on web, specialy on react, and save my apprenticies as a notebook. 
-  - The blog can be a portfolio of the User
+- This application is intendended to show my upgrades and knowledges on web, specialy on react, and save my apprenticies as a binder. 
+  The purpose of this application is to save, update and organize your studies notes. Indicated for students that handwrite your content, to revisit and organize in a localstorage application. 
 
 - IndexedDB for database
 - light and Yellow color pallets
