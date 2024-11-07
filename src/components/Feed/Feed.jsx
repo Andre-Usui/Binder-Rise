@@ -211,9 +211,9 @@ function Feed({ discipline, discipline_id, setPage, page }) {
 
   // ListFeed component
 
-  const listFeed = state.posts.map(postItem => {
+  const listFeed = state.posts.map((postItem, index) => {
     return (
-      <React.Fragment key={postItem.position}>
+      <React.Fragment key={index}>
         <li className="postItemLi">
           <h2 className="postItemTitle">{postItem.post_title}</h2>
           <ul>

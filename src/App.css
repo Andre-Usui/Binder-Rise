@@ -318,6 +318,7 @@ body {
 
 .pageTop {
   display: flex;
+  width: 95%;
   align-items: baseline;
   justify-content: center;
   margin: 1rem 0rem 0rem 0rem;
@@ -328,6 +329,9 @@ body {
   margin: 0rem 0rem;
   padding: 0;
   font-size: 5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .pageBox {
@@ -342,6 +346,9 @@ body {
   font-size: 2.5rem;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .editPageBtn {
@@ -388,7 +395,7 @@ body {
   width: 100%;
   height: 100%;
   margin-bottom: 2rem;
-  padding: 3rem;
+  padding: 0 3rem 1rem 3rem;
   list-style-type: none;
   background-color: var(--main-palette-1);
   border-radius: 10px;
@@ -412,6 +419,7 @@ body {
 
 .postItemContent {
   white-space: pre-wrap;
+  letter-spacing: .07rem;
   margin: 2rem 0rem 2rem 2rem;
   width: 90%;
 }
