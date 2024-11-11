@@ -5,7 +5,7 @@ const initialState = {
   discipline_id: null,
   page: null,
   post_title: "",
-  reference: [],
+  reference: "",
   content: "",
   creation_date: "",
   on_edit: false
@@ -48,22 +48,23 @@ function AddPostForm({ discipline_id, page, onAdd }) {
   const handleAddSubmit = async (e) => {
     e.preventDefault();
 
-    const referenceArr = state.reference.split(', ');
-    const referenceObj = referenceArr.map(pair => {
+
+    const referenceObj = state.reference === ""
+    ? []
+    : state.reference.split(', ').map(pair => {
       const [ref_name, ref_link] = pair.match(/(.+)\((.+)\)/).slice(1, 3);
-      return { ref_name, ref_link }
-
+      return { ref_name, ref_link };
       /*   //matching name(link)
-      Let's break down the regular expression /(.+)\((.+)\)/ used in your code:
+    Let's break down the regular expression /(.+)\((.+)\)/ used in your code:
 
-        '/(.+)\((.+)\)/':
-        '/( ... )/' - This indicates the start and end of the regular expression.
-        '.+' - This matches one or more of any character except line breaks.
-        '\(' - This matches the literal opening parenthesis '('.
-        '\)' - This matches the literal closing parenthesis ')'.
-      */
-     
-    })
+      '/(.+)\((.+)\)/':
+      '/( ... )/' - This indicates the start and end of the regular expression.
+      '.+' - This matches one or more of any character except line breaks.
+      '\(' - This matches the literal opening parenthesis '('.
+      '\)' - This matches the literal closing parenthesis ')'.
+    */
+   
+    }); 
 
     const newPost = {
       discipline_id: discipline_id,

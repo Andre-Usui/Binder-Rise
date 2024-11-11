@@ -141,17 +141,16 @@ function Feed({ discipline, discipline_id, setPage, page }) {
   const handleOnEditForm = async (postItem) => {
     postItem.onEdit = !postItem.onEdit;
     await editPost(postItem);
-    const result = await fetchPosts(discipline_id);
+    const result = await fetchPosts();
     const pages = result.length ? Math.max(...result.map(post => post.page)) : 1;
     const pagePost = result.filter((post) => post.page === page);
     pagePost.sort((a, b) => a.position - b.position);
 
     dispatch({ type: 'setPosts', payload: { posts: pagePost, listPages: pages } });
-
   };
 
   // Handle New Post
-  const handleNewPost = async (newPost) => {  // Done
+  const handleNewPost = async (newPost) => {  
     try {
       await addPost(newPost);
       handleNewPostForm(); // closing PostForm component
@@ -166,20 +165,20 @@ function Feed({ discipline, discipline_id, setPage, page }) {
   const handleEditPost = async (editedPost) => {
     try {
       await editPost(editedPost);
-      await fetchPosts(); // Refresh the list after adding a new post
+      await fetchPosts(); 
     } catch (error) {
       console.error('Error adding discipline:', error);
     }
   };
 
   // Handle delete Post
-  const handleDeletePost = async (post_id) => {  // DONE
+  const handleDeletePost = async (post_id) => {  
     try {
       await deletePost(post_id).then(() => {
       }).catch((error) => {
         console.error("Error deleting post: ", error);
       });
-      await fetchPosts(); // Refresh the list after deleting a post
+      await fetchPosts(); 
     } catch (error) {
       console.error('Error adding discipline:', error);
     }
@@ -191,7 +190,7 @@ function Feed({ discipline, discipline_id, setPage, page }) {
     try {
       await editDiscipline(editedDiscipline);
       handleSetPage(Math.max(...editedDiscipline.pages.map(p => p.num)));
-      await fetchPosts(); // Refresh the list after adding a new post
+      await fetchPosts(); 
     } catch (error) {
       console.error('Error adding discipline:', error);
     }
@@ -203,7 +202,7 @@ function Feed({ discipline, discipline_id, setPage, page }) {
     try {
       await editDiscipline(editedDiscipline);
       handleEditPageForm();
-      await fetchPosts(); // Refresh the list after adding a new post
+      await fetchPosts(); 
     } catch (error) {
       console.error('Error adding discipline:', error);
     }
@@ -286,7 +285,7 @@ function Feed({ discipline, discipline_id, setPage, page }) {
               onAdd={handleNewPage}
             />)}
 
-            
+
           <ul className="postItemUl">
 
             {listFeed}
@@ -294,20 +293,20 @@ function Feed({ discipline, discipline_id, setPage, page }) {
           </ul>
           <div className='postItemBtnBox' style={{ width: "90%", marginTop: "0" }}>
             <Button
-              buttonName="New Post" //TODO - if addPost is on, generate a postForm
+              buttonName="New Post" 
               buttonClick={handleNewPostForm}
               buttonClass="postItemBtn"
-              style={{marginRight: '10vw'}}
+              style={{ marginRight: '10vw' }}
             />
           </div>
-            <div className="newPostBox">
+          <div className="newPostBox">
             {state.newPostForm && (
-            <AddPostForm
-              discipline_id={discipline_id}
-              page={page}
-              onAdd={handleNewPost}
-            />)}
-            </div>
+              <AddPostForm
+                discipline_id={discipline_id}
+                page={page}
+                onAdd={handleNewPost}
+              />)}
+          </div>
         </div>
       )}
     </div>

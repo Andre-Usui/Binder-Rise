@@ -52,7 +52,7 @@ function EditPostForm({ discipline_id, page, post, onEdit }) {
   const [state, dispatch] = useReducer(postReducer, initialState)
 
   useEffect(() => {
-    console.log("useEffect EditPost called, post: ", post, ', state.page: ', post)
+    console.log("useEffect EditPost called, post: ", post, ', state.page: ', page)
     if (post) {
 
       const referenceObj = post.reference;
@@ -70,11 +70,22 @@ function EditPostForm({ discipline_id, page, post, onEdit }) {
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-    const referenceArr = state.reference.split(', ');
-    const referenceObj = referenceArr.map(pair => {
-      const [ref_name, ref_link] = pair.match(/(.+)\((.+)\)/).slice(1, 3);
-      return { ref_name, ref_link }
-    })
+    const referenceObj = state.reference === ""
+      ? []
+      : state.reference.split(', ').map(pair => {
+        const [ref_name, ref_link] = pair.match(/(.+)\((.+)\)/).slice(1, 3);
+        return { ref_name, ref_link };
+        /*   //matching name(link)
+      Let's break down the regular expression /(.+)\((.+)\)/ used in your code:
+  
+        '/(.+)\((.+)\)/':
+        '/( ... )/' - This indicates the start and end of the regular expression.
+        '.+' - This matches one or more of any character except line breaks.
+        '\(' - This matches the literal opening parenthesis '('.
+        '\)' - This matches the literal closing parenthesis ')'.
+      */
+
+      });
     const editedPost = {
       discipline_id: discipline_id,
       page: page,
@@ -82,10 +93,10 @@ function EditPostForm({ discipline_id, page, post, onEdit }) {
       post_title: state.post_title,
       reference: referenceObj,
       content: state.content,
-      creation_date: new Date().toDateString(), 
+      creation_date: new Date().toDateString(),
       onEdit: false
     };
-    await onEdit(editedPost); 
+    await onEdit(editedPost);
     dispatch({ type: 'resetForm' });
   };
 
