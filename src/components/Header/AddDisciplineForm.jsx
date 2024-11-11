@@ -24,7 +24,6 @@ function formDisciplineReducer(state, action) {
       }
     }
     case 'changeBgColor': {
-      console.log("changedBgColor to: ", action.bgColor)
       return {
         ...state,
         bgColor: action.bgColor,
