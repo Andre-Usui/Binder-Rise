@@ -4,7 +4,7 @@ const initialState = {
   discipline_id: null,
   page: null,
   post_title: "",
-  reference: [],
+  reference: "",
   content: "",
   creation_date: "",
   onEdit: null,

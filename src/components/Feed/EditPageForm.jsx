@@ -56,8 +56,8 @@ function EditPageForm({ discipline, posts, page, onEdit, handleSetPage, fetchPos
   const handleDeletePage = async (e) => {
     e.preventDefault();
     await deletePage(discipline, page);
-    fetchPosts();
-    handleSetPage(1);
+    await handleSetPage(1);
+    await fetchPosts();
   }
 
   const handleOnDragEnd = (result) => {
