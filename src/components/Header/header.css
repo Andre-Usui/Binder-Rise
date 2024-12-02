@@ -1,0 +1,404 @@
+/***** Header *****/
+/******************/
+
+.headerBox {
+  height: 100%;
+  width: 100%;
+  background-image: var(--pattern-header-2);
+  background-color: var(--main-palette);
+  margin-bottom: 2vh;
+  display: grid;
+  gap: 0;
+  grid-auto-columns: auto;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: visible;
+  position: relative;
+}
+
+.headerBox>h1 {
+  margin: 0 0 0 4rem;
+  color: var(--main-palette-4);
+  font-size: 4rem;
+  font-family: var(--main-font-2);
+  font-style: oblique;
+  z-index: 1;
+}
+
+.headerTabs {
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: end;
+  padding-left: 7rem;
+  overflow-x: auto;
+  z-index: 3;
+}
+
+.headerBtnOuterOption {
+  height: 2.7rem;
+  width: 2.7rem;
+  background-color: var(--main-palette-4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0px;
+  padding: 0 .3rem 0 .2rem;
+  z-index: 5;
+  clip-path: polygon(0% 100%, 0% 0%, 60% 0%, 78% 9%, 84% 15%, 94% 31%, 96% 51%, 98% 76%, 100% 100%);
+}
+
+.headerBtnOption {
+  height: 2rem;
+  width: 2rem;
+  background-image: url(/options-icon.svg);
+  background-color: unset;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: var(--main-palette-3);
+
+}
+
+.headerBtnClip {}
+
+.headerBtnOuter {
+  height: 2.7rem;
+  min-width: 3.3rem;
+  background-color: var(--main-palette-4);
+  display: flex;
+  justify-self: flex-end;
+  align-items: flex-end;
+  margin-left: -2rem;
+  padding-left: .3rem;
+  padding-right: .3rem;
+  clip-path: polygon(0% 100%, 2% 76%, 4% 51%, 6% 30%, 10% 10%, 15% 0%, 85% 0, 90% 10%, 94% 30%, 96% 51%, 98% 76%, 100% 100%);
+  white-space: nowrap;
+}
+
+.headerBtn {
+  height: 2.2rem;
+  min-width: 3rem;
+  padding: 0 4rem 0 3rem;
+  background-color: var(--main-palette-3);
+  border: none;
+  clip-path: polygon(0% 100%, 2% 76%, 4% 51%, 6% 30%, 10% 10%, 15% 0%, 85% 0, 90% 10%, 94% 30%, 96% 51%, 98% 76%, 100% 100%);
+  cursor: pointer;
+  font-weight: bold;
+  font-family: var(--main-font-1);
+  font-size: 1.3rem;
+}
+
+.headerBtnBox {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  overflow: visible;
+  position: relative;
+  height: 2rem;
+  right: 1.1rem;
+  top: .2rem;
+  gap: .2rem;
+}
+
+.editBtn {
+  height: 1.3rem;
+  width: 1.3rem;
+  background-image: url(/edit-icon.svg);
+  background-color: unset;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+}
+
+.deleteBtn {
+  height: 1.3rem;
+  width: 1.3rem;
+  background-image: url(/trash-icon.svg);
+  background-color: unset;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+}
+
+.headerBtnOuterPlus {
+  height: 3.4rem;
+  min-width: 3.4rem;
+  background-color: var(--main-palette-4);
+  display: flex;
+  justify-self: flex-end;
+  align-items: flex-end;
+  margin-left: -.7rem;
+  margin-right: 5rem;
+  padding: 0 .2rem 0 .2rem;
+  clip-path: polygon(0% 100%, 4% 76%, 8% 51%, 16% 25%, 32% 13%, 40% 10%, 60% 10%, 68% 13%, 84% 25%, 92% 51%, 96% 76%, 100% 100%);
+}
+
+.headerBtnPlus {
+  height: 3rem;
+  min-width: 3rem;
+  padding: 0 1rem 0 1rem;
+  background-color: var(--main-palette-3);
+  bottom: 0;
+  border: none;
+  clip-path: polygon(0% 100%, 4% 76%, 8% 51%, 16% 25%, 32% 13%, 40% 10%, 60% 10%, 68% 13%, 84% 25%, 92% 51%, 96% 76%, 100% 100%);
+  cursor: pointer;
+  font-weight: bold;
+  font-family: var(--main-font-1);
+  font-size: 1.7rem;
+}
+
+/* disciplineForm */
+/******************/
+
+.disciplineForm {
+  min-height: 40vh;
+  width: 100%;
+  padding: 1rem 2rem 1rem 3rem;
+  background-color: var(--main-palette-4);
+}
+
+.disciplineFormSelectBox {
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem 1.5rem 2.5rem 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.disciplineFormColorBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.disciplineFormLabel {
+  justify-self: center;
+}
+
+.disciplineFormInput {
+  margin-top: .5rem;
+  padding: .5rem;
+  width: 34rem;
+  border-radius: 5px;
+  border: .2rem solid var(--main-palette-2);
+  outline: none;
+  transition: border 0.1s ease-in-out;
+  font-size: 1rem;
+}
+
+.disciplineFormInput:focus {
+  border: .3rem solid var(--main-palette-2);
+  outline: none;
+  display: block;
+}
+
+.disciplineFormSelect {
+  width: 15rem;
+  padding: .5rem;
+  gap: 1rem;
+  border-radius: 5px;
+  border: .2rem solid var(--main-palette-2);
+  overflow-y: scroll;
+  transition: all 0.3s ease-in-out;
+}
+
+.disciplineFormSelect:focus {
+  outline: none;
+}
+
+.option {
+  text-align: center;
+
+}
+
+.option:hover {
+  background-color: var(--main-palette-4);
+  color: var(--main-color-2);
+}
+
+.disciplineFormSubmitForm {
+  margin-left: 0rem;
+  padding: 0.3rem;
+  height: 2rem;
+  width: 5rem;
+  background-color: var(--main-palette-1);
+  border: .2rem solid var(--main-palette-2);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.headerDivisor {
+  background-color: var(--main-palette-4);
+  height: 1vh;
+  width: 100vw;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .headerBox>h1 {
+    font-size: 2.5rem;
+    margin: 1rem 1rem;
+  }
+
+  .headerTabs {
+    max-height: 100%;
+    overflow-y: hidden;
+  }
+
+  .headerBtnOuterOption {
+    height: 3rem;
+  }
+
+  .headerBtnOption {
+    height: 2rem;
+  }
+
+  .headerBtnOuter {
+    height: 1.8rem;
+  }
+
+  .headerBtn {
+    height: 1.5rem;
+    font-size: .9rem;
+  }
+
+  .headerBtnBox {
+    margin: 0.3rem;
+  }
+
+  .editBtn {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .deleteBtn {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .headerBtnOuterPlus {
+    height: 2.1rem;
+
+  }
+
+  .headerBtnPlus {
+    height: 1.8rem;
+    font-size: .9rem;
+  }
+
+  .disciplineForm {
+    width: 100vw;
+    height: 100%;
+    padding: 1rem 2rem 1rem 2rem;
+  }
+
+  .disciplineFormColorBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .disciplineFormInput {
+    width: 100%;
+  }
+
+  .disciplineFormSelectBox {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
+  .disciplineFormSelect {
+    width: 100%;
+  }
+  
+  .option {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  .headerBox>h1 {
+    font-size: 2.5rem;
+    margin: .5rem 1rem 1rem 1rem;
+  }
+
+  .headerTabs {
+    max-height: 100%;
+    overflow-y: hidden;
+  }
+
+  .headerBtnOuterOption {
+    height: 3rem;
+  }
+
+  .headerBtnOption {
+    height: 2rem;
+  }
+
+  .headerBtnOuter {
+    height: 1.8rem;
+  }
+
+  .headerBtn {
+    height: 1.5rem;
+  }
+
+  .headerBtnBox {
+    margin: 0.3rem;
+  }
+
+  .editBtn {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .deleteBtn {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .headerBtnOuterPlus {
+    height: 2.4rem;
+  }
+
+  .headerBtnPlus {
+    height: 2.1rem;
+  }
+
+  .disciplineForm {
+    width: 100vw;
+    height: 100%;
+  }
+
+  .disciplineFormColorBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .disciplineFormInput {
+    width: 100%;
+  }
+
+  .disciplineFormSelectBox {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
+  .disciplineFormSelect {
+    width: 100%;
+  }
+  
+  .option {
+    width: 100%;
+  }
+}

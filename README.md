@@ -1,3 +1,45 @@
+# BINDER RISE
+  - Welcome to the Binder Rise! 
+      This app was developed to solve one of my main problems during my studies and content production: Separating, organizing and finding data in a structured and agile way. 
+
+      I am a student who uses writing to reinforce my learning.  However, when I found myself with 3 notebooks full of content, I saw the chaos of finding specific data to apply in my daily life. 
+
+      So I created Binder Rise and i hope that this also help you to study and achieve your goals.
+
+      In this App you can separate your content by Disciplines, Pages and Posts. In each post you can title, save the content, references with links. Everything customizable, editable and relocatable. 
+
+      The App does not use logins or passwords as it stores your data in your Local Storage. You can Download or upload your Binder to use on any device. 
+
+  - Binder Rise uses: 
+    - React;
+    - idb (indexedDB);
+    - react-beatiful-dnd (drag n' drop);
+    - gh-pages.
+
+# Release Notes
+  # 1.0.0 : 
+  - Deploy app on GitHub Pages using gh-pages framework.
+
+  # 1.0.1 :
+  - Setting mobile dimensions to a proper use and precise control over elements;
+  - Fixing error when deleting pages and posts;
+  - Refactoring the organization of components folders.
+
+# Errors to be fixed
+  - Inserting references incorrectly;
+  - deleting the only page of a discipline; 
+  - Error detected when using the beatiful-dnd framework.
+
+# Improvements
+  - Upload JSON to a registered email;
+  - Download and load JSON from email receiving;
+  - Set a password for edition;
+  - Preview discipline's tabs when adding or editting a discipline;
+  - Improve the text area of the post's content with styling; 
+  - Implement ways to reposition pages;
+  - Implement a confirm button when deleting elements;
+  - Implement a dark mode or a set of themes to be chosen by the user.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

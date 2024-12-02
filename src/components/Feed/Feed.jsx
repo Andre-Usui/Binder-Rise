@@ -6,7 +6,7 @@ import NewPageForm from './NewPageForm.jsx';
 import EditPageForm from './EditPageForm.jsx';
 import { DbContext } from '../../db3.jsx';
 import React, { useEffect, useReducer, useContext, useCallback } from 'react';
-
+import "./feed.css";
 
 const initialState = {
   posts: [],

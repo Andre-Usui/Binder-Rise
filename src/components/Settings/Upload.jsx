@@ -39,9 +39,9 @@ export default function Upload() {
   return (
     <>
     
-    <input className = "postItemBtn" type="file" onChange={handleFileChange} accept=".json" />
+    <input className = "settingsButton" type="file" onChange={handleFileChange} accept=".json" />
     <Button
-      buttonClass="postItemBtn"
+      buttonClass="settingsButton"
       buttonName="Upload Binder's JSON"
       buttonClick={handleUpload}
     />

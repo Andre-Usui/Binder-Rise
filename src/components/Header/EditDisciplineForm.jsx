@@ -125,9 +125,9 @@ function EditDisciplineForm({ id, discipline, handle }) {
         />
         <br /><br />
 
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div className ="disciplineFormColorBox">
 
-          <div className="disciplineFormBox">
+          <div className="disciplineFormSelectBox">
             <label htmlFor="bgColor" className="disciplineFormLabel">Set the color of the Discipline's Tab:</label>
             <br />
 
@@ -141,7 +141,7 @@ function EditDisciplineForm({ id, discipline, handle }) {
             <br />
           </div>
 
-          <div className="disciplineFormBox">
+          <div className="disciplineFormSelectBox">
             <label htmlFor="color" className="disciplineFormLabel">Set the font color of the Discipline's Tab:</label>
             <br />
 
@@ -155,7 +155,7 @@ function EditDisciplineForm({ id, discipline, handle }) {
             <br />
           </div>
 
-          <div className="disciplineFormBox">
+          <div className="disciplineFormSelectBox">
             <label htmlFor="altColor" className="disciplineFormLabel">Set the detail color of the Discipline's Tab:</label>
             <br />
 

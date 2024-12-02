@@ -19,8 +19,8 @@ const NewPageForm = ({ discipline, onAdd }) => {
   return (
     <div>
       <form onSubmit={handleSubmitPage} className="addPageForm">
-        <label htmlFor="pageName">Insert bellow the page title:</label>
-        <br /> <br />
+        <label htmlFor="pageName" className="formPostLabel">Insert bellow the page title:</label>
+
         <input
           type="text"
           name="pageName"
@@ -29,7 +29,7 @@ const NewPageForm = ({ discipline, onAdd }) => {
           autoComplete="off"
           required
         />
-        <br /> <br />
+
         <input
           type="submit"
           value="Submit"

@@ -18,7 +18,7 @@ export default function Download() {
 
   return (
     <Button
-      buttonClass="postItemBtn"
+      buttonClass="settingsButton"
       buttonName="Download Binder's JSON"
       buttonClick={handleDownload}
     />

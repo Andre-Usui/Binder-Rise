@@ -33,8 +33,7 @@
 }
 
 .item {
-  min-width: 22rem;
-  width: 100%;
+  width: 22rem;
   height: 100%;
   margin-bottom: 1rem;
   padding: 2rem 3rem 2rem 3rem;
@@ -45,6 +44,72 @@
   scroll-snap-align: start;
 }
 
-.item ul{
+.item ul {
   margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .landing {
+    padding: 1rem;
+    margin: 3rem;
+    text-align: justify;
+    font-size: .8rem;
+  }
+
+  .landing h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .item {
+    width: 18rem;
+    height: 100%;
+    padding: 1rem 2rem 1rem 2rem;
+  }
+
+  .item ul {
+    padding-left: 1rem;
+  }
+
+  .item li {
+    margin-top: .3rem;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  .landing {
+    padding: 1rem;
+    margin: 2rem;
+    text-align: justify;
+    font-size: 1rem;
+  }
+
+  .landing h1 {
+    font-size: 2rem;
+  }
+
+  .landing h2, h3{
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .item {
+    width: 14rem;
+    margin-bottom: 1rem;
+    padding: .4rem .7rem 1rem .7rem;
+    font-size: .8rem;
+  }
+
+  .item ul {
+    padding-left: 1rem;
+  }
 }

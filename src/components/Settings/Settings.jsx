@@ -20,7 +20,7 @@ export default function Settings({ handle }) {
         <div className="dragBox">
           <DragDisciplines />
           <Button
-            buttonClass="postItemBtn"
+            buttonClass="settingsButton"
             buttonName="Submit"
             buttonClick={handleSubmit}
           />

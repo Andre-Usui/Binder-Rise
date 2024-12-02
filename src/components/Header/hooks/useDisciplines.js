@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useContext } from 'react';
 import { DbContext } from '../../../db3.jsx';
 
-export function useDisciplines({ setDiscipline, setPage }) {
+export function useDisciplines({ discipline, setDiscipline, setPage }) {
   const { db, initDB, getAllDisciplines, addDiscipline, editDiscipline, deleteDiscipline } = useContext(DbContext);
   const [disciplines, setDisciplines] = useState([]);
   const [addForm, setAddForm] = useState(false);
@@ -37,6 +37,8 @@ export function useDisciplines({ setDiscipline, setPage }) {
   const toggleSettingsForm = () => {
     if (addForm) setAddForm(!addForm);
     if (editForm) setEditForm(!editForm);
+    discipline === "null" ? setDiscipline("landing") : setDiscipline("null");
+    fetchDisciplines();
     setSettingsForm(settingsForm => !settingsForm);
   }
 
