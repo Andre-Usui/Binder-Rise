@@ -1,6 +1,7 @@
 import { useReducer, useEffect } from "react";
 import Select from "../Select";
-import { colorList } from "../colorList.js"
+import { colorList } from "../colorList.js";
+import ExampleTab from "./ExampleTab.jsx";
 
 const initialState = {
   title: '',
@@ -33,7 +34,7 @@ function formDisciplineReducer(state, action) {
         ...state,
         altColor: action.altColor,
       };
-    } 
+    }
     case 'setDisciplineData': {
       console.log("setDisciplineData Reducer called")
       return {
@@ -84,7 +85,7 @@ function EditDisciplineForm({ id, discipline, handle }) {
       ...discipline,
       discipline_name: state.title,
       style: { backgroundColor: state.bgColor, color: state.color },
-      style2: { backgroundColor: state.altColor},
+      style2: { backgroundColor: state.altColor },
     };
     console.log("HandleEditSubmit was called, the EditDiscipline is: ", editDiscipline)
 
@@ -108,8 +109,8 @@ function EditDisciplineForm({ id, discipline, handle }) {
   return (
     <div>
       <form
-        onSubmit={handleEditSubmit} 
-        className="disciplineForm" 
+        onSubmit={handleEditSubmit}
+        className="disciplineForm"
         id={id}
       >
         <h2>Edit your Discipline</h2>
@@ -125,51 +126,65 @@ function EditDisciplineForm({ id, discipline, handle }) {
         />
         <br /><br />
 
-        <div className ="disciplineFormColorBox">
-
+        <div className="disciplineFormColorBox">
           <div className="disciplineFormSelectBox">
             <label htmlFor="bgColor" className="disciplineFormLabel">Set the color of the Discipline's Tab:</label>
             <br />
-
-            <Select
-              arrayList={colorList}
-              name="bgColor"
-              form={id}
-              className="disciplineFormSelect"
-              onChange={handleInputChange}
-            />
+            <div className="selectOuterBox">
+              <div className="selectColorExample" style={{ backgroundColor: `${state.bgColor}` }}></div>
+              <Select
+                arrayList={colorList}
+                name="bgColor"
+                form={id}
+                className="disciplineFormSelect"
+                onChange={handleInputChange}
+                stateColor={state.bgColor}
+              />
+            </div>
             <br />
           </div>
 
           <div className="disciplineFormSelectBox">
             <label htmlFor="color" className="disciplineFormLabel">Set the font color of the Discipline's Tab:</label>
             <br />
+            <div className="selectOuterBox">
+              <div className="selectColorExample" style={{ backgroundColor: `${state.color}` }}></div>
+              <Select
+                arrayList={colorList}
+                name="color"
+                form={id}
+                className="disciplineFormSelect"
+                onChange={handleInputChange}
+                stateColor={state.color}
 
-            <Select
-              arrayList={colorList}
-              name="color"
-              form={id}
-              className="disciplineFormSelect"
-              onChange={handleInputChange}
-            />
+              />
+            </div>
             <br />
           </div>
 
           <div className="disciplineFormSelectBox">
             <label htmlFor="altColor" className="disciplineFormLabel">Set the detail color of the Discipline's Tab:</label>
             <br />
-
-            <Select
-              arrayList={colorList}
-              name="altColor"
-              form={id}
-              className="disciplineFormSelect"
-              onChange={handleInputChange}
-            />
+            <div className="selectOuterBox">
+              <div className="selectColorExample" style={{ backgroundColor: `${state.altColor}` }}></div>
+              <Select
+                arrayList={colorList}
+                name="altColor"
+                form={id}
+                className="disciplineFormSelect"
+                onChange={handleInputChange}
+                stateColor={state.altColor}
+              />
+            </div>
             <br />
           </div>
-
         </div>
+        <ExampleTab
+          bg={state.bgColor}
+          alt={state.altColor}
+          color={state.color}
+          title={state.title}
+        />
 
         <div className="buttonFormBox">
           <input

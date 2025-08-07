@@ -168,15 +168,34 @@
   height: 4rem;
   display: flex;
   flex-direction: column;
-  margin: 2.5rem 1.5rem 2.5rem 0;
+  margin: 2.5rem 0rem 2.5rem 0rem;
   justify-content: center;
   align-items: center;
 }
 
+.selectOuterBox {
+  position: relative;
+  max-height: min-content;
+  max-width: min-content;
+}
+
+.selectColorExample{
+  position: absolute;
+  height: 1.4rem;
+  width: 1.8rem; 
+  top: .5rem;
+  left: 1.3rem;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+
 .disciplineFormColorBox {
   display: flex;
   justify-content: space-between;
+  padding-top: 1rem;
 }
+
 
 .disciplineFormLabel {
   justify-self: center;
@@ -313,11 +332,11 @@
     width: 100%;
     margin: 1rem 0;
   }
-  
+
   .disciplineFormSelect {
-    width: 100%;
+    width: 40vw;
   }
-  
+
   .option {
     width: 100%;
   }
@@ -392,12 +411,13 @@
   .disciplineFormSelectBox {
     width: 100%;
     margin: 1rem 0;
+
   }
-  
+
   .disciplineFormSelect {
-    width: 100%;
+    width: 60vw;
   }
-  
+
   .option {
     width: 100%;
   }
