@@ -35,9 +35,10 @@ Folders são organizadores de Disciplines que possuem contextos similares. Posic
 
 ### Front-end
 
-- [] Folder add's Tab 
-- [] Folder Shape Tab
-- [] Folder edit Container
+- [x] Folder add's Tab 
+- [x] Folder add Container
+- [x] Folder Shape Tab
+- [x] Folder edit Container
 - [] Folder edit deve possibilitar adicionar, editar ou remover posições das disciplinas
 
 ### Planos
@@ -51,6 +52,9 @@ Folders são organizadores de Disciplines que possuem contextos similares. Posic
   - [] Separar Componentes em pastas com seus respectivos CSS
   - [] Otimizar os padrões Root do css
 - [] BR - Custom - Style (Brasileiro)
+- [] possibilitar editar posições de Pages dentro da Discipline
+- [] codificar com o app ensinado de segurança
+- [] animations no header tabs
 
 ### Bugs
 

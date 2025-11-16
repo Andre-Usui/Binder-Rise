@@ -46,6 +46,32 @@
   font-size: 1.3rem;
 }
 
+.headerBtnOuterFolderExp {
+  height: 3.5rem;
+  min-width: 3.3rem;
+  padding-left: .3rem;
+  padding-right: .3rem;
+  background-color: var(--main-palette-4);
+  display: flex;
+  justify-self: flex-end;
+  align-items: flex-end;
+  clip-path: polygon(0% 100%, 2% 76%, 4% 51%, 6% 37%, 10% 25%, 15% 20%, 55% 20%, 60% 18%, 62% 15%, 64% 5%, 66% 0%, 90% 0%, 91% 2%, 93% 5%, 94% 10%, 98% 86%, 100% 100%);
+  white-space: nowrap;
+}
+
+.headerBtnFolderExp {
+  height: 2.7rem;
+  min-width: 3rem;
+  padding: 0 4rem 0 3rem;
+  background-color: var(--main-palette-3);
+  border: none;
+  clip-path: polygon(0% 100%, 2% 76%, 4% 51%, 6% 37%, 10% 25%, 15% 20%, 55% 20%, 60% 18%, 62% 15%, 64% 5%, 66% 0%, 90% 0%, 91% 2%, 93% 5%, 94% 10%, 98% 86%, 100% 100%);
+  cursor: pointer;
+  font-weight: bold;
+  font-family: var(--main-font-1);
+  font-size: 1.3rem;
+}
+
 @media screen and (max-width: 1024px) {
   .headerBtnOuterExp {
     height: 1.8rem;

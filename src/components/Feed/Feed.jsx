@@ -4,7 +4,8 @@ import AddPostForm from './AddPostForm.jsx';
 import EditPostForm from './EditPostForm.jsx';
 import NewPageForm from './NewPageForm.jsx';
 import EditPageForm from './EditPageForm.jsx';
-import { DbContext } from '../../db3.jsx';
+import { DbContext } from '../../DbContext.jsx';
+import { useDisciplines } from '../../DisciplinesContext';
 import React, { useEffect, useReducer, useContext, useCallback } from 'react';
 import "./feed.css";
 
@@ -69,8 +70,12 @@ const feedReducer = (state, action) => {
 };
 
 
-function Feed({ discipline, discipline_id, setPage, page }) {
-
+function Feed() {
+  const {
+    disc,
+    page,
+    setPage,
+  } = useDisciplines();
   const {
     db,
     initDB,
@@ -104,8 +109,8 @@ function Feed({ discipline, discipline_id, setPage, page }) {
       if (state.newPostForm) (dispatch({ type: 'toggleNewPostForm' }))
       if (state.newPageForm) (dispatch({ type: 'toggleNewPageForm' }))
       if (state.editPageForm) (dispatch({ type: 'toggleEditPageForm' }))
-      const result = await getPagePosts(discipline_id);
-      const fDiscipline = await getDiscipline(discipline_id);
+      const result = await getPagePosts(disc ? disc.discipline_id : '');
+      const fDiscipline = await getDiscipline(disc ? disc.discipline_id : '');
       const pagesArray = Array.isArray(fDiscipline.pages) ? fDiscipline.pages : [];
       const pagesNumArray = pagesArray.map(p => p.num);
       const pageIndex = pagesNumArray.indexOf(page);
@@ -118,7 +123,7 @@ function Feed({ discipline, discipline_id, setPage, page }) {
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
-  }, [db, page, discipline_id, discipline, getPagePosts]);
+  }, [db, page, disc, getPagePosts, getDiscipline]);
 
   useEffect(() => {
     fetchPosts();
@@ -142,8 +147,6 @@ function Feed({ discipline, discipline_id, setPage, page }) {
     postItem.onEdit = !postItem.onEdit;
     await editPost(postItem);
     await fetchPosts();
-    
-
   };
 
   // Handle New Post
@@ -282,7 +285,7 @@ function Feed({ discipline, discipline_id, setPage, page }) {
               onAdd={handleNewPage}
             />)}
 
-            
+
           <ul className="postItemUl">
 
             {listFeed}
@@ -293,17 +296,17 @@ function Feed({ discipline, discipline_id, setPage, page }) {
               buttonName="New Post" //TODO - if addPost is on, generate a postForm
               buttonClick={handleNewPostForm}
               buttonClass="postItemBtn"
-              style={{marginRight: '10vw'}}
+              style={{ marginRight: '10vw' }}
             />
           </div>
-            <div className="newPostBox">
+          <div className="newPostBox">
             {state.newPostForm && (
-            <AddPostForm
-              discipline_id={discipline_id}
-              page={page}
-              onAdd={handleNewPost}
-            />)}
-            </div>
+              <AddPostForm
+                discipline_id={disc ? disc.discipline_id : ''}
+                page={page}
+                onAdd={handleNewPost}
+              />)}
+          </div>
         </div>
       )}
     </div>

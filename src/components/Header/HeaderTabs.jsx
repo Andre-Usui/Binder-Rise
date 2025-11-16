@@ -1,34 +1,79 @@
 import DisciplineButton from './DisciplineButton';
+import FolderButton from './FolderButton';
 import Button from '../Button';
+import { useDisciplines } from '../../DisciplinesContext';
+import { useContext } from 'react';
 
-export default function HeaderTabs({ disciplines, discipline_id, onSetDiscipline, onDeleteDiscipline, onToggleEditForm, onToggleAddForm, onToggleSettingsForm }) {
+
+
+export default function HeaderTabs() {
+
+  const {
+    disc,
+    disciplines,
+    folders,
+    toggleAddForm,
+    toggleEditForm,
+    toggleSettingsForm,
+    toggleAddFolderForm,
+    toggleEditFolderForm,
+    handleSetDiscipline,
+    handleDeleteDiscipline,
+    handleSetFolder,
+    handleDeleteFolder,
+  } = useDisciplines();
+
+  console.log("folders is: ", folders);
+  console.log("disc is: ", disc);
+  console.log("disciplines is: ", disciplines);
+  
   return (
     <div className="headerTabs">
       <div className="headerBtnOuterOption">
         <Button
           buttonClass="headerBtnOption"
-          buttonClick={() => onToggleSettingsForm()}
+          buttonClick={() => toggleSettingsForm()}
           buttonName=""
         />
       </div>
-      {disciplines.map(discipline => (
+      {folders == undefined ? '' : folders.map(folder => (
+        <FolderButton
+          key={folder.folder}
+          folder={folder}
+          isActive={folder === folder.folder_id}
+          onDelete={() => handleDeleteFolder(folder.folder_id)}
+          onEdit={toggleEditFolderForm}
+          onClick={() => handleSetFolder(folder)}
+        />
+      ))}
+
+      <div className="headerBtnOuterFolder">
+
+        <Button
+          buttonClass="headerBtnFolder"
+          buttonClick={() => toggleAddFolderForm()}
+          buttonName=""
+        />
+      </div>
+      {disciplines == undefined ? '' : disciplines.map(dis => (
         <DisciplineButton
-          key={discipline.discipline_id}
-          discipline={discipline}
-          isActive={discipline_id === discipline.discipline_id}
-          onDelete={() => onDeleteDiscipline(discipline.discipline_id)}
-          onEdit={onToggleEditForm}
-          onClick={() => onSetDiscipline(discipline)}
+          key={dis.discipline_id}
+          discipline={dis}
+          isActive={disc.discipline === dis.discipline_id}
+          onDelete={() => handleDeleteDiscipline(dis.discipline_id)}
+          onEdit={toggleEditForm}
+          onClick={() => handleSetDiscipline(dis)}
         />
       ))}
       <div className="headerBtnOuterPlus">
 
         <Button
           buttonClass="headerBtnPlus"
-          buttonClick={onToggleAddForm}
+          buttonClick={toggleAddForm}
           buttonName="+"
         />
       </div>
+
     </div>
   );
 }

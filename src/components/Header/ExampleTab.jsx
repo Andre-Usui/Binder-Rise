@@ -1,16 +1,17 @@
 import './exampleTab.css';
 import Button from '../Button';
 
-export default function ExampleTab({ bg, alt, color, title }) {
+export default function ExampleTab({ bg, alt, color, title, folder }) {
 
-  
+
   return (
     <>
+
       <div className="exampleTabContainer">
         <div className="exampleTabBox">
-          <div className="headerBtnOuterExp" style={{ backgroundColor: alt }}>
+          <div className={folder ? "headerBtnOuterFolderExp" : "headerBtnOuterExp"} style={{ backgroundColor: alt }}>
             <Button
-              buttonClass="headerBtnExp"
+              buttonClass={folder ? "headerBtnFolderExp" : "headerBtnExp"}
               buttonName={title}
               style={{ backgroundColor: bg, color: color }}
               disabledCheck={true}

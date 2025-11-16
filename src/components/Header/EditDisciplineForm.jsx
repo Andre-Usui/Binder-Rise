@@ -76,8 +76,6 @@ function EditDisciplineForm({ id, discipline, handle }) {
     console.log("setDisciplineData: ", discipline)
   }, [discipline]);
 
-  // Edit Submit
-
   const handleEditSubmit = async (e) => {
     console.log("HandleEditSubmit was called, the discipline is: ", discipline)
     e.preventDefault();

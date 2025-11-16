@@ -1,6 +1,6 @@
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { useContext, useCallback, useEffect, useState } from 'react';
-import { DbContext } from '../../db3.jsx'
+import { DbContext } from '../../DbContext.jsx'
 
 export default function DragDisciplines() {
 

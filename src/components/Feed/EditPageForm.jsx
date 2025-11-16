@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { DbContext } from '../../db3.jsx';
+import { DbContext } from '../../DbContext.jsx';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 function EditPageForm({ discipline, posts, page, onEdit, handleSetPage, fetchPosts }) {

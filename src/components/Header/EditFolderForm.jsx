@@ -1,29 +1,21 @@
-import { useReducer } from "react";
-import Select from "../Select";
+import { useReducer, useEffect } from "react";
+import Select from "../Select.jsx";
 import { colorList } from "../colorList.js";
 import ExampleTab from "./ExampleTab.jsx";
 
-
 const initialState = {
   title: '',
-  pageName: '',
   bgColor: '',
   color: '',
 };
 
-function formDisciplineReducer(state, action) {
+function formFolderReducer(state, action) {
   switch (action.type) {
-    case 'changeDiscipline': {
+    case 'changeTitle': {
       return {
         ...state,
         title: action.title,
       };
-    }
-    case 'changePageName': {
-      return {
-        ...state,
-        pageName: action.pageName,
-      }
     }
     case 'changeBgColor': {
       return {
@@ -43,6 +35,16 @@ function formDisciplineReducer(state, action) {
         altColor: action.altColor,
       };
     }
+    case 'setFolderData': {
+      console.log("setFolderData Reducer called")
+      return {
+        ...state,
+        title: action.payload.title,
+        bgColor: action.payload.bgColor,
+        color: action.payload.color,
+        altColor: action.payload.altColor
+      };
+    }
     case 'resetForm': {
       return initialState;
     }
@@ -53,28 +55,46 @@ function formDisciplineReducer(state, action) {
 
 
 
-function AddDisciplineForm({ id, handle }) {
+function EditFolderForm({ id, folder, handle }) {
 
-  const [state, dispatch] = useReducer(formDisciplineReducer, initialState);
+  const [state, dispatch] = useReducer(formFolderReducer, initialState);
 
-  const handleSubmit = async (e) => {
+  useEffect(() => {
+    console.log("useEffect EditDiscipline effect was called, post: ", folder)
+    if (folder) {
+
+      dispatch({
+        type: 'setDisciplineData',
+        payload: {
+          title: folder.folder_name,
+          bgColor: folder.style.backgroundColor,
+          color: folder.style.color,
+          altColor: folder.style2.backgroundColor
+        },
+      });
+    }
+    console.log("setDisciplineData: ", discipline)
+  }, [discipline]);
+
+  const handleEditSubmit = async (e) => {
+    console.log("HandleEditSubmit was called, the discipline is: ", discipline)
     e.preventDefault();
-    const newDiscipline = {
+    const editDiscipline = {
+      ...discipline,
       discipline_name: state.title,
       style: { backgroundColor: state.bgColor, color: state.color },
       style2: { backgroundColor: state.altColor },
-      pages: [{ num: 1, name: state.pageName }]
     };
-    await handle(newDiscipline);
+    console.log("HandleEditSubmit was called, the EditDiscipline is: ", editDiscipline)
+
+    await handle(editDiscipline);
     dispatch({ type: 'resetForm' });
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === 'title') {
-      dispatch({ type: 'changeDiscipline', title: value });
-    } else if (name === 'pageName') {
-      dispatch({ type: 'changePageName', pageName: value });
+      dispatch({ type: 'changeTitle', title: value });
     } else if (name === 'bgColor') {
       dispatch({ type: 'changeBgColor', bgColor: value });
     } else if (name === 'color') {
@@ -87,11 +107,11 @@ function AddDisciplineForm({ id, handle }) {
   return (
     <div>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleEditSubmit}
         className="disciplineForm"
         id={id}
       >
-        <h2>Add a new Discipline</h2>
+        <h2>Edit your Discipline</h2>
         <label htmlFor="title">Insert the title of the Discipline:</label> <br />
         <input
           type="text"
@@ -102,18 +122,7 @@ function AddDisciplineForm({ id, handle }) {
           autoComplete="off"
           required
         />
-
         <br /><br />
-        <label htmlFor="pageName">Insert the first page name of the Discipline:</label> <br />
-        <input
-          type="text"
-          name="pageName"
-          className="disciplineFormInput"
-          value={state.pageName}
-          onChange={handleInputChange}
-          autoComplete="off"
-          required
-        />
 
         <div className="disciplineFormColorBox">
           <div className="disciplineFormSelectBox">
@@ -168,7 +177,6 @@ function AddDisciplineForm({ id, handle }) {
             <br />
           </div>
         </div>
-
         <ExampleTab
           bg={state.bgColor}
           alt={state.altColor}
@@ -189,4 +197,4 @@ function AddDisciplineForm({ id, handle }) {
 }
 
 
-export default AddDisciplineForm;
+export default EditFolderForm;

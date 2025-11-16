@@ -7,7 +7,7 @@ export default function HelpItem(props) {
         <p>{props.description}</p>
         <ul>
           {props.ul.map(item => (
-            <li>{item}</li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
         <img src={props.srcImg} alt={props.altImg} />
