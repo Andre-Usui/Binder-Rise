@@ -14,6 +14,7 @@ function Header() {
     disc,
     disciplines,
     folders,
+    forms,
     addForm,
     editForm,
     addFolderForm,
@@ -67,7 +68,7 @@ function Header() {
       />
       <div className="headerDivisor"></div>
       <AnimatePresence mode="sync">
-        {settingsForm && (
+        {forms.settingsForm && (
           <motion.div
             key="settingsForm"
             variants={variants}
@@ -81,7 +82,7 @@ function Header() {
           </motion.div>
         )}
 
-        {addForm && (
+        {forms.addForm && (
           <motion.div
             key="addForm"
             variants={variants}
@@ -95,7 +96,7 @@ function Header() {
           </motion.div>
         )}
 
-        {editForm && (
+        {forms.editForm && (
           <motion.div
             key="editForm"
             variants={variants}
@@ -112,7 +113,7 @@ function Header() {
           </motion.div>
         )}
 
-        {addFolderForm && (
+        {forms.addFolderForm && (
           <motion.div
             key="addFolderForm"
             variants={variants}
@@ -128,7 +129,7 @@ function Header() {
           </motion.div>
         )}
 
-        {editFolderForm && (
+        {forms.editFolderForm && (
           <motion.div
             key="editFolderForm"
             variants={variants}
@@ -139,7 +140,7 @@ function Header() {
             className="overflow-hidden"
           >
             <EditFolderForm
-              folder={folder}
+              folder={folders}
               handle={handleEditFolder}
             />
           </motion.div>

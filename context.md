@@ -12,14 +12,14 @@ Folders são organizadores de Disciplines que possuem contextos similares. Posic
   - [x] deve possuir os campos 'settings_id', 'positions', 'last_position' e 'style'
   - Ideia para implementações futuras relacionadas ao visual ('style') da aplicação
   - [] Adequar antigas disciplines.position para o novo store
-- [] Adicionar as Columns 'folder' no objectStore 'disciplines'
+- [x] Adicionar as Columns 'folder' no objectStore 'disciplines'
 
 ### DB
 - [x] Implementar update no db3 para adicionar um field em disciplines para vincular ao Folder
 - [x] Implementar um schema para folder 
   - [x] O schema deve possuir as columns 'folder_id', 'disciplines_position' - Done
-  - [] Folder deve ser chamado junto com getAllDisciplines, renderizado na discipline tab
-- [] Folder é atrelado na Discipline via editDiscipline
+  - [x] Folder deve ser chamado junto com getAllDisciplines, renderizado na discipline tab
+- [ ] Folder é atrelado na Discipline via editDiscipline
   - [] Caso alguma Folder seja atrelada, a position fica Null e folder_position vai para o último inteiro atrelado ao folder
 - [] Folder possui uma propriedade disciplines_position: um Array de discipline_id
 
