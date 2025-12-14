@@ -2,11 +2,10 @@ import DisciplineButton from './DisciplineButton';
 import FolderButton from './FolderButton';
 import Button from '../Button';
 import { useDisciplines } from '../../DisciplinesContext';
-import { useContext } from 'react';
+import './tabs.css';
 
 
-
-export default function HeaderTabs() {
+export default function Tabs() {
 
   const {
     disc,

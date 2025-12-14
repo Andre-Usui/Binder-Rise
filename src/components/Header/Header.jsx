@@ -1,12 +1,11 @@
 import Settings from '../Settings/Settings';
-import HeaderTabs from './HeaderTabs';
-import AddDisciplineForm from './AddDisciplineForm';
-import EditDisciplineForm from './EditDisciplineForm';
-import AddFolderForm from './AddFolderForm';
-import EditFolderForm from './EditFolderForm';
+import Tabs from '../Tabs/Tabs';
+import AddDisciplineForm from '../Tabs/AddDisciplineForm';
+import EditDisciplineForm from '../Tabs/EditDisciplineForm';
+import AddFolderForm from '../Tabs/AddFolderForm';
+import EditFolderForm from '../Tabs/EditFolderForm';
 import { useDisciplines } from '../../DisciplinesContext';
 import { AnimatePresence, motion } from 'motion/react';
-import { useContext } from 'react';
 import './header.css';
 
 function Header() {
@@ -53,7 +52,7 @@ function Header() {
   return (
     <div className="headerBox">
       <h1>Binder Rise</h1>
-      <HeaderTabs
+      <Tabs
         disciplines={disciplines}
         folders={folders}
         onSetFolder={handleSetFolder}
