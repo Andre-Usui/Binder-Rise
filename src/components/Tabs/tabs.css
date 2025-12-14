@@ -1,30 +1,6 @@
 /***** Header *****/
 /******************/
 
-.headerBox {
-  height: 100%;
-  width: 100%;
-  background-image: var(--pattern-header-2);
-  background-color: var(--main-palette);
-  margin-bottom: 2vh;
-  display: grid;
-  gap: 0;
-  grid-auto-columns: auto;
-  justify-content: space-between;
-  box-sizing: border-box;
-  overflow: visible;
-  position: relative;
-}
-
-.headerBox>h1 {
-  margin: 0 0 0 4rem;
-  color: var(--main-palette-4);
-  font-size: 4rem;
-  font-family: var(--main-font-2);
-  font-style: oblique;
-  z-index: 1;
-}
-
 .headerTabs {
   max-height: 100%;
   max-width: 100%;
@@ -182,27 +158,32 @@
 }
 
 .headerBtnOuterFolder {
-  height: 3.4rem;
-  min-width: 3.4rem;
+  min-height: 2rem;
+  max-height: 3.4rem;
+  max-width: 3.4rem;
+  min-width: 2rem;
   background-color: var(--main-palette-4);
   display: flex;
   justify-self: flex-end;
   align-items: flex-end;
   margin-left: -.7rem;
   margin-right: 1rem;
-  padding: 0 .2rem 0 .2rem;
   clip-path: polygon(0% 100%, 4% 76%, 8% 51%, 16% 25%, 32% 13%, 40% 10%, 60% 10%, 68% 13%, 84% 25%, 92% 51%, 96% 76%, 100% 100%);
   z-index: 1;
 }
 
 .headerBtnFolder {
-  height: 3rem;
+  min-height: 1rem;
+  max-height: 3rem;
   min-width: 3rem;
+  max-width: 5rem;
+  margin: 0;
   padding: 0 1rem 0 1rem;
   background-color: var(--main-palette-3);
   background-image: url(/folder-icon2.svg);
   background-size: cover;
-  bottom: 0;
+  background-position: center;
+  background-repeat: no-repeat;
   border: none;
   clip-path: polygon(0% 100%, 4% 76%, 8% 51%, 16% 25%, 32% 13%, 40% 10%, 60% 10%, 68% 13%, 84% 25%, 92% 51%, 96% 76%, 100% 100%);
   cursor: pointer;

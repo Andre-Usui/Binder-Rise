@@ -53,7 +53,7 @@ function formDisciplineReducer(state, action) {
 
 
 
-function AddisciplineForm({ id, handle }) {
+function AddDisciplineForm({ id, handle }) {
 
   const [state, dispatch] = useReducer(formDisciplineReducer, initialState);
 
@@ -189,4 +189,4 @@ function AddisciplineForm({ id, handle }) {
 }
 
 
-export default AddisciplineForm;
+export default AddDisciplineForm;

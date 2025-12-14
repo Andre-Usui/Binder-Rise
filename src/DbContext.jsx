@@ -8,10 +8,9 @@ let db
 
 const initDB = async () => {
 
-
   try {
-    db = await openDB('binderDB3', 2, {
-      upgrade: async (db) => {
+    db = await openDB('binderDB3', 3, {
+      upgrade: async (db, oldVersion, newVersion, transaction) => {
         if (!db.objectStoreNames.contains('disciplines')) {
           const disciplineStore = await db.createObjectStore('disciplines', { keyPath: 'discipline_id', autoIncrement: true });
           disciplineStore.createIndex("discipline_id", "discipline_id", { unique: true });
@@ -28,7 +27,36 @@ const initDB = async () => {
           postStore.createIndex("post_id", "post_id", { unique: true });
           await postStore.done;
         }
-      } 
+
+
+        if (!db.objectStoreNames.contains('folders')) {
+          const foldersStore = db.createObjectStore('folders', { keyPath: 'folder_id', autoIncrement: true });
+          foldersStore.createIndex('folder_id', 'folder_id', { unique: true });
+          foldersStore.createIndex('inside_position', 'inside_position', { unique: false });
+          foldersStore.createIndex('position', 'position', { unique: false });
+          await foldersStore.done;
+        }
+
+        if (!db.objectStoreNames.contains('settings')) {
+          const store = db.createObjectStore('settings', { keyPath: 'settings_id', autoIncrement: true });
+          store.createIndex('settings_id', 'settings_id', { unique: true });
+          store.createIndex('style', 'style', { unique: false });
+          await store.done;
+          const firstSettings = { settings_id: 1, style: 1 };
+          await store.add(firstSettings);
+
+        }
+
+        if (db.objectStoreNames.contains('disciplines')) {
+          console.log('ok');
+          const storeDis = transaction.objectStore('disciplines');
+          storeDis.createIndex('folder_dis_id', 'folder_id', { unique: false });
+          storeDis.createIndex('page_position', 'page_position', { unique: false });
+
+          await storeDis.done;
+
+        }
+      }
     });
 
     return db;
@@ -47,13 +75,26 @@ const getPagePosts = async (discipline_id) => {
   const transaction = db.transaction('posts', 'readonly');
   const store = transaction.objectStore('posts');
   const index = store.index('post_dis_id');
-
-  const allPosts = await store.getAll(); 
-  await allPosts.done;
-  const posts = await index.getAll(discipline_id); 
+  const posts = await index.getAll(discipline_id);
   await posts.done;
   await transaction.done;
   return posts;
+};
+
+const getTabPosition = async (setting) => {
+
+  if (!db) {
+
+    db = await initDB();
+    await db.done;
+  }
+  const transaction = db.transaction('settings', 'readonly');
+  const store = transaction.objectStore('settings');
+  const settings = await store.get(setting);
+  const position = settings.positions;
+  await transaction.done;
+
+  return position;
 };
 
 const getAllDisciplines = async () => {
@@ -69,6 +110,21 @@ const getAllDisciplines = async () => {
   await transaction.done;
 
   return disciplines;
+};
+
+const getAllFolders = async () => {
+
+  if (!db) {
+
+    db = await initDB();
+    await db.done;
+  }
+  const transaction = db.transaction('folders', 'readonly');
+  const store = transaction.objectStore('folders');
+  const folders = await store.getAll();
+  await transaction.done;
+
+  return folders;
 };
 
 const getDiscipline = async (discipline_id) => {
@@ -89,7 +145,8 @@ const addDiscipline = async (discipline) => {
   if (!db) {
 
     db = await initDB();
-  } const transaction = db.transaction('disciplines', 'readwrite');
+  }
+  const transaction = db.transaction('disciplines', 'readwrite');
   const store = transaction.objectStore('disciplines');
   const allDisciplines = await store.getAll();
   const lastPosition = allDisciplines.length ? Math.max(...allDisciplines.map(dis => dis.position)) : 1;
@@ -101,7 +158,7 @@ const addDiscipline = async (discipline) => {
 
 }
 
-const editDiscipline = async (discipline) => { 
+const editDiscipline = async (discipline) => {
   if (!db) {
     db = await initDB();
   }
@@ -112,6 +169,7 @@ const editDiscipline = async (discipline) => {
   await transaction.done;
 }
 
+// TODO: Upgrade to settings
 const editDisciplinesPosition = async (discipline) => {
   if (!db) {
     db = await initDB();
@@ -161,7 +219,7 @@ const deletePage = async (discipline, num) => {
 
 }
 
-const deleteDiscipline = async (discipline_id) => { 
+const deleteDiscipline = async (discipline_id) => {
   if (!db) {
 
     db = await initDB();
@@ -169,7 +227,7 @@ const deleteDiscipline = async (discipline_id) => {
   const dis_store = transaction.objectStore('disciplines');
   const pos_store = transaction.objectStore('posts');
   const index = pos_store.index("post_dis_id");
-  const postsRequest = await index.getAll((discipline_id));  
+  const postsRequest = await index.getAll((discipline_id));
   postsRequest.forEach((async post => {
     await pos_store.delete(post.post_id);
     await pos_store.done;
@@ -178,9 +236,67 @@ const deleteDiscipline = async (discipline_id) => {
   await transaction.done;
 }
 
-const addPost = async (post) => {
+const addFolder = async (folder) => {
+  if (!db) {
+
     db = await initDB();
-  
+  }
+  const transactionFolders = db.transaction('folders', 'readwrite');
+  const storeFolders = transactionFolders.objectStore('folders');
+  const allFolders = await storeFolders.getAll();
+  const lastPosition = allFolders.length ? Math.max(...allFolders.map(folder => folder.position)) : 1;
+  const lastId = allFolders.length ? Math.max(...allFolders.map(folder => folder.folder_id)) : 1;
+  const finalFolder = { ...folder, folder_id: lastId + 1, position: lastPosition + 1 };
+  await storeFolders.add(finalFolder);
+  await transactionFolders.done;
+
+}
+
+const editFolder = async (folder) => {
+  if (!db) {
+    db = await initDB();
+  }
+  const transaction = db.transaction('folders', 'readwrite');
+  const store = transaction.objectStore('folders');
+
+  await store.put(folder);
+  await transaction.done;
+}
+
+const editFolderPosition = async (folder) => {
+  if (!db) {
+    db = await initDB();
+  }
+  const foldersArray = await folder.map(folder => folder);
+  const transaction = db.transaction('folders', 'readwrite');
+  const store = transaction.objectStore('folders');
+  for await (const dis of foldersArray) {
+    await store.put(dis);
+  }
+  await transaction.done;
+};
+
+const deleteFolder = async (folder_id) => {
+  if (!db) {
+
+    db = await initDB();
+  } const transaction = db.transaction('folders', 'readwrite');
+  const folder_store = transaction.objectStore('folders');
+  const dis_store = transaction.objectStore('disciplines');
+  const index = dis_store.index("folder_dis_id");
+  const disRequest = await index.getAll((folder_id));
+  disRequest.forEach((async dis => {
+    const newDis = { ...dis, position: 0, folder_dis_id: null };
+    await dis_store.put(newDis);
+    await dis_store.done;
+  }))
+  await folder_store.delete(folder_id)
+  await transaction.done;
+}
+
+const addPost = async (post) => {
+  db = await initDB();
+
   const transaction = db.transaction('posts', 'readwrite');
   const store = transaction.objectStore('posts');
   const index = store.index("post_dis_page");
@@ -197,7 +313,7 @@ const addPost = async (post) => {
   }
 }
 
-const editPost = async (post) => {  
+const editPost = async (post) => {
   if (!db) {
     db = await initDB();
   }
@@ -207,7 +323,7 @@ const editPost = async (post) => {
   await transaction.done;
 };
 
-const editPostPosition = async (post) => {  
+const editPostPosition = async (post) => {
   if (!db) {
     db = await initDB();
   }
@@ -237,26 +353,41 @@ const downloadJSON = async () => {
   }
   const transactionPost = db.transaction('posts', 'readwrite');
   const storePost = transactionPost.objectStore('posts');
-  const dataPost = await storePost.getAll(); 
+  const dataPost = await storePost.getAll();
   const transactionDis = db.transaction('disciplines', 'readwrite');
   const storeDis = transactionDis.objectStore('disciplines');
-  const dataDis = await storeDis.getAll(); 
-  const data = {posts: dataPost, disciplines: dataDis };
+  const dataDis = await storeDis.getAll();
+  const data = { version: 3, posts: dataPost, disciplines: dataDis };
   const jsonBlob = new Blob([JSON.stringify(data)], { type: 'application/json' });
   saveAs(jsonBlob, 'binder.json');
 }
 
 const uploadJSON = async (data) => {
   if (!db) {
-
     db = await initDB();
   }
+
+  if (!data.version && data.version !== 3) {
+    data.disciplines.sort((a, b) => a.position - b.position);
+    const oldPositions = [];
+
+    for (let i = 0; i <= data.disciplines.length; i++) {
+      oldPositions.push(data.disciplines[i].discipline_id);
+    }
+
+    const firstSettings = { settings_id: 1, positions: oldPositions, last_position: data.disciplines.length, style: 1 };
+    console.log('upload - firstSettings: ', firstSettings);
+
+    const storeSettings = db.transaction('settings', 'readwrite').objectStore('settings');
+    await storeSettings.put(firstSettings);
+  }
+
   const dataDis = data.disciplines;
   const dataPost = data.posts;
   const transactionPost = db.transaction('posts', 'readwrite');
   const storePost = transactionPost.objectStore('posts');
   await storePost.clear();
-  dataPost.forEach( async (item) => {
+  dataPost.forEach(async (item) => {
     await storePost.put(item);
     await transactionPost.done;
   })
@@ -264,12 +395,10 @@ const uploadJSON = async (data) => {
   const transactionDis = db.transaction('disciplines', 'readwrite');
   const storeDis = transactionDis.objectStore('disciplines');
   await storeDis.clear();
-  dataDis.forEach( async (item) => {
+  dataDis.forEach(async (item) => {
     await storeDis.put(item);
     await transactionDis.done;
   })
-
-
 }
 
 const DbProvider = ({ children }) => {
@@ -292,6 +421,7 @@ const DbProvider = ({ children }) => {
       db,
       initDB,
       getPagePosts,
+      getTabPosition,
       getAllDisciplines,
       getDiscipline,
       addDiscipline,
@@ -299,6 +429,11 @@ const DbProvider = ({ children }) => {
       editDisciplinesPosition,
       deletePage,
       deleteDiscipline,
+      getAllFolders,
+      addFolder,
+      editFolder,
+      editFolderPosition,
+      deleteFolder,
       addPost,
       editPost,
       editPostPosition,

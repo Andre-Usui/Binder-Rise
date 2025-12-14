@@ -1,4 +1,5 @@
 import "./landing.css";
+import { motion } from 'motion/react';
 
 /*
   - ensinar como usar; 
@@ -12,7 +13,9 @@ export default function Landing() {
 
 
   return (
-    <div className="landing">
+    <div
+      className="landing"
+    >
       <h1>Welcome!</h1>
       <h2>
         Studies state that writing down your learning by hand helps a lot in the learning
@@ -77,27 +80,27 @@ export default function Landing() {
             <strong>Edit and customize to your content:</strong> <br /><br />  Rearrange disciplines and pages as needed, delete
             or edit existing content, and add new notes whenever you want.
           </p>
-          </div>
-          <div className="item">
+        </div>
+        <div className="item">
           <p>
             <strong>Take control of your notes:</strong> <br /><br /> With Binder Rise, you're in charge of your note-taking experience.
             No more tedious searching or sifting through disorganized notes. Our app helps you stay focused,
             productive, and organized.
           </p>
-          
+
         </div>
       </div>
-        <h3>
-          Try <strong style={{color: "#FF4C4C", }}>Binder Rise</strong> today and start taking control of your notes!
-        </h3>
-        <p>
-          This landing text aims to highlight the key features and benefits of your app, while also emphasizing
-          the user's ability to customize and tailor the experience to their specific needs.
-        </p>
-        <p>
-          Click on the "+" button tab to create a new discipline and start your studies. You also can check some 
-          hints for a properly use of <strong style={{color: "#FF4C4C", }}>Binder Rise</strong> on Option button on top left tab.
-        </p>
+      <h3>
+        Try <strong style={{ color: "#FF4C4C", }}>Binder Rise</strong> today and start taking control of your notes!
+      </h3>
+      <p>
+        This landing text aims to highlight the key features and benefits of your app, while also emphasizing
+        the user's ability to customize and tailor the experience to their specific needs.
+      </p>
+      <p>
+        Click on the "+" button tab to create a new discipline and start your studies. You also can check some
+        hints for a properly use of <strong style={{ color: "#FF4C4C", }}>Binder Rise</strong> on Option button on top left tab.
+      </p>
     </div>
 
   )

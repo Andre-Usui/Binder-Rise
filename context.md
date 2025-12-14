@@ -12,14 +12,14 @@ Folders são organizadores de Disciplines que possuem contextos similares. Posic
   - [x] deve possuir os campos 'settings_id', 'positions', 'last_position' e 'style'
   - Ideia para implementações futuras relacionadas ao visual ('style') da aplicação
   - [] Adequar antigas disciplines.position para o novo store
-- [] Adicionar as Columns 'folder' no objectStore 'disciplines'
+- [x] Adicionar as Columns 'folder' no objectStore 'disciplines'
 
 ### DB
 - [x] Implementar update no db3 para adicionar um field em disciplines para vincular ao Folder
 - [x] Implementar um schema para folder 
   - [x] O schema deve possuir as columns 'folder_id', 'disciplines_position' - Done
-  - [] Folder deve ser chamado junto com getAllDisciplines, renderizado na discipline tab
-- [] Folder é atrelado na Discipline via editDiscipline
+  - [x] Folder deve ser chamado junto com getAllDisciplines, renderizado na discipline tab
+- [ ] Folder é atrelado na Discipline via editDiscipline
   - [] Caso alguma Folder seja atrelada, a position fica Null e folder_position vai para o último inteiro atrelado ao folder
 - [] Folder possui uma propriedade disciplines_position: um Array de discipline_id
 
@@ -35,9 +35,10 @@ Folders são organizadores de Disciplines que possuem contextos similares. Posic
 
 ### Front-end
 
-- [] Folder add's Tab 
-- [] Folder Shape Tab
-- [] Folder edit Container
+- [x] Folder add's Tab 
+- [x] Folder add Container
+- [x] Folder Shape Tab
+- [x] Folder edit Container
 - [] Folder edit deve possibilitar adicionar, editar ou remover posições das disciplinas
 
 ### Planos
@@ -51,6 +52,9 @@ Folders são organizadores de Disciplines que possuem contextos similares. Posic
   - [] Separar Componentes em pastas com seus respectivos CSS
   - [] Otimizar os padrões Root do css
 - [] BR - Custom - Style (Brasileiro)
+- [] possibilitar editar posições de Pages dentro da Discipline
+- [] codificar com o app ensinado de segurança
+- [] animations no header tabs
 
 ### Bugs
 

@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import Download from './Download.jsx';
 import Upload from './Upload.jsx';
 import HelpItem from "./HelpItem.jsx";
@@ -14,7 +15,8 @@ export default function Settings({ handle }) {
 
   return (
     <>
-      <div className="settingsContainer">
+      <div
+        className="settingsContainer">
         <h1>Settings</h1>
         <h3>Drag the items to rearrange the discipline's positions</h3>
         <div className="dragBox">
@@ -70,7 +72,7 @@ export default function Settings({ handle }) {
             srcImg="src"
             altImg=""
           />
-          <HelpItem
+          <HelpItem key="4"
             title="How to download and upload the Json of your Binder"
             description="On Settings you can download and upload the content of your binder"
             ul={["By download the Json of your Binder, you can load it on any desktop uploading it;",
@@ -90,6 +92,7 @@ export default function Settings({ handle }) {
             altImg=""
           />
           <HelpItem
+            key="6"
             title="How to edit or delete a Page"
             description="The page can be edited, search the 'edit' Button and there you can:"
             ul={["Edit the name of the page;",
@@ -111,6 +114,7 @@ export default function Settings({ handle }) {
             altImg=""
           />
           <HelpItem
+            key="8"
             title="How to properly use references"
             description="To properly use the reference you should use the following pattern:"
             ul={["Set a reference using 'title(link)';",
@@ -131,6 +135,7 @@ export default function Settings({ handle }) {
             altImg=""
           />
           <HelpItem
+            key="10"
             title="How to delete a Post"
             description="On each Post you will see a 'Delete' Button, but be aware: "
             ul={["The content deleted can't be restored.",

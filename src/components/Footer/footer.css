@@ -1,5 +1,6 @@
 .footerBox {
-
+  position: absolute;
+  z-index: 1000;
   width: 100%;
   min-height: 10rem;
   background-color: var(--main-palette-3);

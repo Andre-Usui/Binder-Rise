@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from "react";
-import Select from "../Select";
+import Select from "../Select.jsx";
 import { colorList } from "../colorList.js";
 import ExampleTab from "./ExampleTab.jsx";
 
@@ -9,7 +9,7 @@ const initialState = {
   color: '',
 };
 
-function formDisciplineReducer(state, action) {
+function formFolderReducer(state, action) {
   switch (action.type) {
     case 'changeTitle': {
       return {
@@ -35,8 +35,8 @@ function formDisciplineReducer(state, action) {
         altColor: action.altColor,
       };
     }
-    case 'setDisciplineData': {
-      console.log("setDisciplineData Reducer called")
+    case 'setFolderData': {
+      console.log("setFolderData Reducer called")
       return {
         ...state,
         title: action.payload.title,
@@ -55,28 +55,26 @@ function formDisciplineReducer(state, action) {
 
 
 
-function EditDisciplineForm({ id, discipline, handle }) {
+function EditFolderForm({ id, folder, handle }) {
 
-  const [state, dispatch] = useReducer(formDisciplineReducer, initialState);
+  const [state, dispatch] = useReducer(formFolderReducer, initialState);
 
   useEffect(() => {
-    console.log("useEffect EditDiscipline effect was called, post: ", discipline)
-    if (discipline) {
+    console.log("useEffect EditDiscipline effect was called, post: ", folder)
+    if (folder) {
 
       dispatch({
         type: 'setDisciplineData',
         payload: {
-          title: discipline.discipline_name,
-          bgColor: discipline.style.backgroundColor,
-          color: discipline.style.color,
-          altColor: discipline.style2.backgroundColor
+          title: folder.folder_name,
+          bgColor: folder.style.backgroundColor,
+          color: folder.style.color,
+          altColor: folder.style2.backgroundColor
         },
       });
     }
     console.log("setDisciplineData: ", discipline)
   }, [discipline]);
-
-  // Edit Submit
 
   const handleEditSubmit = async (e) => {
     console.log("HandleEditSubmit was called, the discipline is: ", discipline)
@@ -199,4 +197,4 @@ function EditDisciplineForm({ id, discipline, handle }) {
 }
 
 
-export default EditDisciplineForm;
+export default EditFolderForm;
