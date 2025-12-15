@@ -11,27 +11,13 @@ import './header.css';
 function Header() {
   const {
     disc,
-    disciplines,
     folders,
     forms,
-    addForm,
-    editForm,
-    addFolderForm,
-    editFolderForm,
-    settingsForm,
-    toggleAddForm,
-    toggleEditForm,
     toggleSettingsForm,
     handleAddDiscipline,
     handleEditDiscipline,
-    toggleAddFolderForm,
-    toggleEditFolderForm,
-    handleDeleteDiscipline,
-    handleSetFolder,
     handleAddFolder,
     handleEditFolder,
-    handleDeleteFolder,
-    handleSetDiscipline
   } = useDisciplines();
 
   const variants = {
@@ -50,21 +36,9 @@ function Header() {
   };
 
   return (
-    <div className="headerBox">
+    <div className="h-60 grid grid-cols-auto justify-between overflow-visible relative border-box headerBox">
       <h1>Binder Rise</h1>
-      <Tabs
-        disciplines={disciplines}
-        folders={folders}
-        onSetFolder={handleSetFolder}
-        onDeleteFolder={handleDeleteFolder}
-        onSetDiscipline={handleSetDiscipline}
-        onDeleteDiscipline={handleDeleteDiscipline}
-        onToggleEditForm={toggleEditForm}
-        onToggleAddForm={toggleAddForm}
-        onToggleEditFolderForm={toggleEditFolderForm}
-        onToggleAddFolderForm={toggleAddFolderForm}
-        onToggleSettingsForm={toggleSettingsForm}
-      />
+      <Tabs />
       <div className="headerDivisor"></div>
       <AnimatePresence mode="sync">
         {forms.settingsForm && (

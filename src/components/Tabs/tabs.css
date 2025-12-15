@@ -296,11 +296,6 @@
 
 @media screen and (max-width: 1024px) {
 
-  .headerBox>h1 {
-    font-size: 2.5rem;
-    margin: 1rem 1rem;
-  }
-
   .headerTabs {
     max-height: 100%;
     overflow-y: hidden;
@@ -389,11 +384,6 @@
 }
 
 @media screen and (max-width: 480px) {
-
-  .headerBox>h1 {
-    font-size: 2.5rem;
-    margin: .5rem 1rem 1rem 1rem;
-  }
 
   .headerTabs {
     max-height: 100%;

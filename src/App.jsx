@@ -13,13 +13,15 @@ function App() {
   return (
     <DbProvider>
       <DisciplinesProvider>
-        <Header
-        />
-        <AnimatePresence mode="sync">
-          <Body />
-        </AnimatePresence>
-        <Footer
-        />
+        <div className="h-full w-screen m-0 p-0 bg-main-2 box-border overflow-x-hidden">
+          <Header
+          />
+          <AnimatePresence mode="sync">
+            <Body />
+          </AnimatePresence>
+          <Footer
+          />
+        </div>
       </DisciplinesProvider>
     </DbProvider>
   )
