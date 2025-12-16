@@ -32,7 +32,7 @@ export default function DragDisciplines() {
 
   useEffect(() => {
     fetchDisciplines();
-  }, [fetchDisciplines] );
+  }, [fetchDisciplines]);
 
 
   const updateDisPositions = async (orderedDis) => {
@@ -59,33 +59,40 @@ export default function DragDisciplines() {
     updateDisPositions(items);
   };
 
-    return (
-      <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId="dis">
-          {(provided) => (
-            <ul className="dragableUl" {...provided.droppableProps} ref={provided.innerRef}>
-              {disOrder.map((dis, index) => (
-                <Draggable
-                  key={dis.discipline_id.toString()}
-                  draggableId={dis.discipline_id.toString()}
-                  index={index}
-                >
-                  {(provided) => (
-                    <li
-                      className="dragableLi"
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                    >
-                      <p>{dis.discipline_name}</p>
-                    </li>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
-    );
-  }
+  return (
+    <DragDropContext onDragEnd={handleOnDragEnd}>
+      <Droppable droppableId="dis">
+        {(provided) => (
+          <ul
+            id="dragableUl"
+            className="mt-4 p-0 w-32 flex flex-col 
+                        justify-evenly list-none"
+            {...provided.droppableProps} ref={provided.innerRef}>
+            {disOrder.map((dis, index) => (
+              <Draggable
+                key={dis.discipline_id.toString()}
+                draggableId={dis.discipline_id.toString()}
+                index={index}
+              >
+                {(provided) => (
+                  <li
+                    id={"dragableLi"}
+                    className="min-h-16 w-full flex flex-col items-center justify-evenly 
+                              bg-main-4 text-main-1 mb-1 text-center rounded-lg
+                              overflow-hidden text-ellipsis"
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                  >
+                    <p>{dis.discipline_name}</p>
+                  </li>
+                )}
+              </Draggable>
+            ))}
+            {provided.placeholder}
+          </ul>
+        )}
+      </Droppable>
+    </DragDropContext>
+  );
+}

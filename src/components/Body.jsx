@@ -1,7 +1,6 @@
 import Feed from "./Feed/Feed";
 import Landing from "./Landing/Landing";
 import { useDisciplines } from '../DisciplinesContext.jsx'
-import { useContext } from "react";
 import { AnimatePresence, motion } from 'motion/react';
 
 

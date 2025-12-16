@@ -13,7 +13,7 @@ function App() {
   return (
     <DbProvider>
       <DisciplinesProvider>
-        <div className="h-full w-screen m-0 p-0 bg-main-2 box-border overflow-x-hidden">
+        <div className="h-full w-screen m-0 p-0 bg-main-2 box-border overflow-x-hidden font-1">
           <Header
           />
           <AnimatePresence mode="sync">

@@ -39,7 +39,7 @@ function Header() {
     <div className="h-60 grid grid-cols-auto justify-between overflow-visible relative border-box headerBox">
       <h1>Binder Rise</h1>
       <Tabs />
-      <div className="headerDivisor"></div>
+      <div className="bg-main-4 h-2 w-screen headerDivisor"></div>
       <AnimatePresence mode="sync">
         {forms.settingsForm && (
           <motion.div

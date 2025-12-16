@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import Download from './Download.jsx';
 import Upload from './Upload.jsx';
 import HelpItem from "./HelpItem.jsx";
@@ -15,14 +14,15 @@ export default function Settings({ handle }) {
 
   return (
     <>
-      <div
-        className="settingsContainer">
-        <h1>Settings</h1>
-        <h3>Drag the items to rearrange the discipline's positions</h3>
-        <div className="dragBox">
+      <div 
+        id="settingsContainer"
+        className="w-screen h-fit m-0 px-1 py-5 bg-main-2">
+        <h1 className="text-3xl font-1 text-main-4">Settings</h1>
+        <h3>Drag the items to rearrange the discipline&apos;s positions</h3>
+        <div id="dragBox">
           <DragDisciplines />
           <Button
-            buttonClass="settingsButton"
+            buttonClass="min-w-full m-1 p-1 bg-main-4 text-main-1 border-main-2 border-2 rounded-sm text-sm cursor-pointer"
             buttonName="Submit"
             buttonClick={handleSubmit}
           />

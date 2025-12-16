@@ -288,12 +288,6 @@
   cursor: pointer;
 }
 
-.headerDivisor {
-  background-color: var(--main-palette-4);
-  height: 1vh;
-  width: 100vw;
-}
-
 @media screen and (max-width: 1024px) {
 
   .headerTabs {
