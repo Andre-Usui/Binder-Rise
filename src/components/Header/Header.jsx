@@ -36,10 +36,16 @@ function Header() {
   };
 
   return (
-    <div className="h-60 grid grid-cols-auto justify-between overflow-visible relative border-box headerBox">
-      <h1>Binder Rise</h1>
+    <div id="headerBox"
+      className="
+        h-60 w-full grid grid-cols-auto justify-between overflow-visible 
+        relative border-box bg-main-2 bg-waves-2 bg-repeat"
+    >
+      <h1
+      className="pl-16 pt-12 text-main-4 text-[6rem] font-main-2 z-1 font-extrabold"
+      >Binder Rise</h1>
       <Tabs />
-      <div className="bg-main-4 h-2 w-screen headerDivisor"></div>
+      <div id="headerDivisor" className="bg-main-4 h-2 w-screen"></div>
       <AnimatePresence mode="sync">
         {forms.settingsForm && (
           <motion.div

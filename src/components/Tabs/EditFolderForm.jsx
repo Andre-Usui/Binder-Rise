@@ -2,6 +2,7 @@ import { useReducer, useEffect } from "react";
 import Select from "../Select.jsx";
 import { colorList } from "../colorList.js";
 import ExampleTab from "./ExampleTab.jsx";
+import { useDisciplines } from '../../DisciplinesContext';
 
 const initialState = {
   title: '',
@@ -57,6 +58,10 @@ function formFolderReducer(state, action) {
 
 function EditFolderForm({ id, folder, handle }) {
 
+    const {
+    disc
+  } = useDisciplines();
+
   const [state, dispatch] = useReducer(formFolderReducer, initialState);
 
   useEffect(() => {
@@ -73,14 +78,14 @@ function EditFolderForm({ id, folder, handle }) {
         },
       });
     }
-    console.log("setDisciplineData: ", discipline)
-  }, [discipline]);
+    console.log("setDisciplineData: ", disc)
+  }, [disc, folder]);
 
   const handleEditSubmit = async (e) => {
-    console.log("HandleEditSubmit was called, the discipline is: ", discipline)
+    console.log("HandleEditSubmit was called, the discipline is: ", disc)
     e.preventDefault();
     const editDiscipline = {
-      ...discipline,
+      ...disc,
       discipline_name: state.title,
       style: { backgroundColor: state.bgColor, color: state.color },
       style2: { backgroundColor: state.altColor },

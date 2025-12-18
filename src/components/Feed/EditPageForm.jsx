@@ -106,8 +106,8 @@ function EditPageForm({ discipline, posts, page, onEdit, handleSetPage, fetchPos
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmitPage} className="addPageForm">
+    <div> 
+      <form onSubmit={handleSubmitPage} id="addPageForm" className="w-4/5 m-auto p-4 border-2 border-main-4 rounded-lg bg-main-1 ">
         <label className="formPostLabel" htmlFor="pageName">Insert below the page title:</label>
         < br/> < br/>
         <input
