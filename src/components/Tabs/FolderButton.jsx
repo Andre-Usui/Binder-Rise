@@ -42,9 +42,26 @@ function FolderButton({ folder, onEdit, onDelete }) {
 
         </div>
       )}
-      <div className="headerFolderBtnOuter" style={folder.style2}>
+      <div className="
+            h-[3.4rem] min-w-[3.4rem]
+          bg-main-4
+          flex items-end justify-self-end
+          ml-[-0.7rem] mr-4
+          px-[0.2rem]
+          z-1
+          lg:h-[2.1rem]
+          sm:h-[2.4rem]
+          [clip-path: polygon(0% 100%, 2% 76%, 4% 51%, 6% 30%, 10% 10%, 15% 0%, 85% 0, 90% 10%, 94% 30%, 96% 51%, 98% 76%, 100% 100%);]" 
+          style={folder.style2}>
         <Button
-          buttonClass="headerFolderBtn"
+          buttonClass="
+            h-[3rem] min-w-[3rem]
+            px-[1rem]
+            bg-main-3 bg-cover bg-center
+            border-none cursor-pointer
+            lg:h-[1.8rem] lg:text-[0.9rem]
+            sm:h-[2.1rem]
+            [clip-path: polygon(0% 100%, 2% 76%, 4% 51%, 6% 30%, 10% 10%, 15% 0%, 85% 0, 90% 10%, 94% 30%, 96% 51%, 98% 76%, 100% 100%);]"
           buttonClick={handleSetExpand}
           buttonName={folder.name}
           style={folder.style}

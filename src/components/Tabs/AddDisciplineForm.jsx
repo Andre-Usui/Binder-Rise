@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import Select from "../Select";
 import { colorList } from "../colorList.js";
 import ExampleTab from "./ExampleTab.jsx";
-
+import{selectBox, selectOuterBox, selectExp, formColorBox, formLabel, formInput, formSelect, option, formSubmitButton} from './tabsTailwind.js';
 
 const initialState = {
   title: '',
@@ -10,6 +10,8 @@ const initialState = {
   bgColor: '',
   color: '',
 };
+
+
 
 function formDisciplineReducer(state, action) {
   switch (action.type) {
@@ -51,8 +53,6 @@ function formDisciplineReducer(state, action) {
   }
 }
 
-
-
 function AddDisciplineForm({ id, handle }) {
 
   const [state, dispatch] = useReducer(formDisciplineReducer, initialState);
@@ -88,7 +88,12 @@ function AddDisciplineForm({ id, handle }) {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="disciplineForm"
+        className="
+            min-h-[40vh] w-full
+            p-[1rem_2rem_1rem_3rem]
+            bg-main-4
+            lg:w-screen lg:h-full lg:px-8
+            sm:w-screen sm:h-full"
         id={id}
       >
         <h2>Add a new Discipline</h2>
@@ -96,7 +101,7 @@ function AddDisciplineForm({ id, handle }) {
         <input
           type="text"
           name="title"
-          className="disciplineFormInput"
+          className={formInput}
           value={state.title}
           onChange={handleInputChange}
           autoComplete="off"
@@ -108,24 +113,24 @@ function AddDisciplineForm({ id, handle }) {
         <input
           type="text"
           name="pageName"
-          className="disciplineFormInput"
+          className={formInput}
           value={state.pageName}
           onChange={handleInputChange}
           autoComplete="off"
           required
         />
 
-        <div className="disciplineFormColorBox">
-          <div className="disciplineFormSelectBox">
-            <label htmlFor="bgColor" className="disciplineFormLabel">Set the color of the Discipline's Tab:</label>
+        <div className={formColorBox}>
+          <div className={selectBox}>
+            <label htmlFor="bgColor" className={formLabel}>Set the color of the Discipline&apos;s Tab:</label>
             <br />
-            <div className="selectOuterBox">
-              <div className="selectColorExample" style={{ backgroundColor: `${state.bgColor}` }}></div>
+            <div className={selectOuterBox}>
+              <div className={selectExp} style={{ backgroundColor: `${state.bgColor}` }}></div>
               <Select
                 arrayList={colorList}
                 name="bgColor"
                 form={id}
-                className="disciplineFormSelect"
+                className={formSelect}
                 onChange={handleInputChange}
                 stateColor={state.bgColor}
               />
@@ -133,16 +138,16 @@ function AddDisciplineForm({ id, handle }) {
             <br />
           </div>
 
-          <div className="disciplineFormSelectBox">
-            <label htmlFor="color" className="disciplineFormLabel">Set the font color of the Discipline's Tab:</label>
+          <div className={selectBox}>
+            <label htmlFor="color" className={formLabel}>Set the font color of the Discipline's Tab:</label>
             <br />
-            <div className="selectOuterBox">
-              <div className="selectColorExample" style={{ backgroundColor: `${state.color}` }}></div>
+            <div className={selectOuterBox}>
+              <div className={selectExp} style={{ backgroundColor: `${state.color}` }}></div>
               <Select
                 arrayList={colorList}
                 name="color"
                 form={id}
-                className="disciplineFormSelect"
+                className={formSelect}
                 onChange={handleInputChange}
                 stateColor={state.color}
 
@@ -151,16 +156,16 @@ function AddDisciplineForm({ id, handle }) {
             <br />
           </div>
 
-          <div className="disciplineFormSelectBox">
-            <label htmlFor="altColor" className="disciplineFormLabel">Set the detail color of the Discipline's Tab:</label>
+          <div className={selectBox}>
+            <label htmlFor="altColor" className={formLabel}>Set the detail color of the Discipline's Tab:</label>
             <br />
-            <div className="selectOuterBox">
-              <div className="selectColorExample" style={{ backgroundColor: `${state.altColor}` }}></div>
+            <div className={selectOuterBox}>
+              <div className={selectExp} style={{ backgroundColor: `${state.altColor}` }}></div>
               <Select
                 arrayList={colorList}
                 name="altColor"
                 form={id}
-                className="disciplineFormSelect"
+                className={formSelect}
                 onChange={handleInputChange}
                 stateColor={state.altColor}
               />
@@ -179,7 +184,7 @@ function AddDisciplineForm({ id, handle }) {
         <div className="buttonFormBox">
           <input
             type="submit"
-            className="disciplineFormSubmitForm"
+            className={formSubmitButton}
             value="Submit"
           />
         </div>

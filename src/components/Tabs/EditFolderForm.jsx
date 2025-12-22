@@ -3,6 +3,8 @@ import Select from "../Select.jsx";
 import { colorList } from "../colorList.js";
 import ExampleTab from "./ExampleTab.jsx";
 import { useDisciplines } from '../../DisciplinesContext';
+import{selectBox, selectOuterBox, selectExp, formColorBox, formLabel, formInput, formSelect, option, formSubmitButton} from './tabsTailwind.js';
+
 
 const initialState = {
   title: '',
@@ -113,7 +115,12 @@ function EditFolderForm({ id, folder, handle }) {
     <div>
       <form
         onSubmit={handleEditSubmit}
-        className="disciplineForm"
+        className="
+            min-h-[40vh] w-full
+            p-[1rem_2rem_1rem_3rem]
+            bg-main-4
+            lg:w-screen lg:h-full lg:px-8
+            sm:w-screen sm:h-full"
         id={id}
       >
         <h2>Edit your Discipline</h2>
@@ -121,7 +128,7 @@ function EditFolderForm({ id, folder, handle }) {
         <input
           type="text"
           name="title"
-          className="disciplineFormInput"
+          className={formInput}
           value={state.title}
           onChange={handleInputChange}
           autoComplete="off"
@@ -129,17 +136,17 @@ function EditFolderForm({ id, folder, handle }) {
         />
         <br /><br />
 
-        <div className="disciplineFormColorBox">
-          <div className="disciplineFormSelectBox">
-            <label htmlFor="bgColor" className="disciplineFormLabel">Set the color of the Discipline's Tab:</label>
+        <div className={formColorBox}>
+          <div className={selectBox}>
+            <label htmlFor="bgColor" className={formLabel}>Set the color of the Discipline&apos;s Tab:</label>
             <br />
-            <div className="selectOuterBox">
-              <div className="selectColorExample" style={{ backgroundColor: `${state.bgColor}` }}></div>
+            <div className={selectOuterBox}>
+              <div className={selectExp} style={{ backgroundColor: `${state.bgColor}` }}></div>
               <Select
                 arrayList={colorList}
                 name="bgColor"
                 form={id}
-                className="disciplineFormSelect"
+                className={formSelect}
                 onChange={handleInputChange}
                 stateColor={state.bgColor}
               />
@@ -147,16 +154,16 @@ function EditFolderForm({ id, folder, handle }) {
             <br />
           </div>
 
-          <div className="disciplineFormSelectBox">
-            <label htmlFor="color" className="disciplineFormLabel">Set the font color of the Discipline's Tab:</label>
+          <div className={selectBox}>
+            <label htmlFor="color" className={formLabel}>Set the font color of the Discipline&apos;s Tab:</label>
             <br />
-            <div className="selectOuterBox">
-              <div className="selectColorExample" style={{ backgroundColor: `${state.color}` }}></div>
+            <div className={selectOuterBox}>
+              <div className={selectExp} style={{ backgroundColor: `${state.color}` }}></div>
               <Select
                 arrayList={colorList}
                 name="color"
                 form={id}
-                className="disciplineFormSelect"
+                className={formSelect}
                 onChange={handleInputChange}
                 stateColor={state.color}
 
@@ -165,16 +172,16 @@ function EditFolderForm({ id, folder, handle }) {
             <br />
           </div>
 
-          <div className="disciplineFormSelectBox">
-            <label htmlFor="altColor" className="disciplineFormLabel">Set the detail color of the Discipline's Tab:</label>
+          <div className={selectBox}>
+            <label htmlFor="altColor" className={formLabel}>Set the detail color of the Discipline&apos;s Tab:</label>
             <br />
-            <div className="selectOuterBox">
-              <div className="selectColorExample" style={{ backgroundColor: `${state.altColor}` }}></div>
+            <div className={selectOuterBox}>
+              <div className={selectExp} style={{ backgroundColor: `${state.altColor}` }}></div>
               <Select
                 arrayList={colorList}
                 name="altColor"
                 form={id}
-                className="disciplineFormSelect"
+                className={formSelect}
                 onChange={handleInputChange}
                 stateColor={state.altColor}
               />
@@ -192,7 +199,7 @@ function EditFolderForm({ id, folder, handle }) {
         <div className="buttonFormBox">
           <input
             type="submit"
-            className="disciplineFormSubmitForm"
+            className={formSubmitButton}
             value="Submit"
           />
         </div>

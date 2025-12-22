@@ -1,0 +1,9 @@
+export const selectBox = "h-[4rem] flex flex-col items-center justify-center my-[2.5rem] w-full lg:my-[1rem]";
+export const selectOuterBox = "relative max-h-fit max-w-fit";
+export const selectExp = "absolute h-[1.4rem] w-[1.8rem] top-[0.5rem] left-[1.3rem] rounded-lg bg-transparent";
+export const formColorBox = "flex justify-between pt-4";
+export const formLabel = "justify-self-center";
+export const formInput = "mt-2 p-2 w-[34rem] border border-main-2 focus:outline-none focus:ring-2 focus:ring-main-3";
+export const formSelect = "w-[15rem] p-2 gap-4 border border-main-2 overflow-y-scroll focus:outline-none focus:ring-2 focus:ring-main-3";
+export const option = "text-center p-2 hover:bg-main-4 hover:text-main-2 cursor-pointer";
+export const formSubmitButton = "m-0 p-2 w-4 h-2 bg-main-1 border border-main-2 rounded-lg cursor-pointer"
