@@ -13,3 +13,9 @@
   2.2 [x] Upgrade para Tailwind do Body
   2.3 [x] Upgrade para Tailwind do Footer
   2.4 [x] Upgrade para Tailwind no Landing
+3 [ ] Ajustando arquitetura do software em pastas e arquivos tailwind.js
+  3.1 [x] Polindo Landing Container
+  3.2 [ ] Polindo Settings Container
+  3.3 [ ] Polindo Tabs Container
+  3.4 [ ] Polindo Header Container
+  3.5 [ ] Polindo Settings Container

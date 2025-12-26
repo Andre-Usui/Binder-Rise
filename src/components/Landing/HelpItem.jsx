@@ -1,14 +1,14 @@
-export default function HelpItem ({ title, description, imageSrc }) {
+import { helpItem, helpItemImg } from "./landingTailwind";
 
-  const itemClass = "w-100 h-full mb-4 p-12 bg-main-2 rounded-lg grid gap-0 snap-start";
+export default function HelpItem ({ title, description, imageSrc }) {
 
   return (
     <>
-      <div className={itemClass}>
+      <div className={helpItem}>
         <p>
           <strong>{title}</strong> <br /><br /> {description}
         </p>
-        {imageSrc && <img src={imageSrc} alt={title} className="h-64 w-64 mt-4 rounded-md" />}
+        {imageSrc && <img src={imageSrc} alt={title} className={helpItemImg} />}
       </div>
     </>
   )

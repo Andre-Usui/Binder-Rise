@@ -1,5 +1,6 @@
 import HelpContainer from "./HelpContainer";
 import HelpItem from "./HelpItem";
+import { landingContainer, landingText, landingLogo, landingTitle, landingSubText } from "./landingTailwind";
 
 /*
   - ensinar como usar; 
@@ -12,13 +13,12 @@ export default function Landing() {
   return (
     <div
       id="landing"
-      className="flex flex-col align-baseline p-12 m-24 text-justify bg-main-2 rounded-lg"
+      className={landingContainer}
     >
-      <h1
-        className="font-main-1 text-[4rem] text-main-4 self-center m-0"
-      >
-        Welcome!</h1>
-      <h2>
+      <h1 className={landingTitle}>
+        Welcome!
+      </h1>
+      <h2 className={landingText}>
         Studies state that writing down your learning by hand helps a lot in the learning
         process, as the article of <i>Scientific American</i> says on &quot;
         <a
@@ -27,20 +27,19 @@ export default function Landing() {
           Why Writing by Hand Is Better for Memory and Learning
         </a>
         &quot;.
-      </h2>
-
-      <h3>
         I myself use this methodology and recommend it to everyone I care about. But when I had to find
         some content within dozens of notebooks, multiple references, I found myself going crazy. Or i buy a new notebook
         or a new notebinder and rewrite EVERYTHING, or i build an Aplication to it. Then i made the...
-      </h3>
-      <h1>Binder Rise</h1>
-      <h3>
+      </h2>
+
+      <h1 className={landingLogo}>Binder Rise</h1>
+
+      <h3 className={landingSubText}>
         As myself, are you tired of juggling multiple note and struggling to keep your notes organized?
         Do you wish you had a centralized space to store and reference your notes,
         without the clutter and chaos?
 
-        <br /> <br />
+        <br />
 
         Binder Rise is here to revolutionize your note-taking experience. With our intuitive
         and customizable app, you can:
@@ -67,17 +66,15 @@ export default function Landing() {
           description="With Binder Rise, you're in charge of your note-taking experience. No more tedious searching or sifting through disorganized notes. Our app helps you stay focused, productive, and organized."
         />
       </HelpContainer>
-      <h3>
+      <h3 className={landingSubText}>
         Try <strong style={{ color: "#FF4C4C", }}>Binder Rise</strong> today and start taking control of your notes!
-      </h3>
-      <p>
+        <br />
         This landing text aims to highlight the key features and benefits of your app, while also emphasizing
         the user&apos;s ability to customize and tailor the experience to their specific needs.
-      </p>
-      <p>
+        <br />
         Click on the &quot;+&quot; button tab to create a new discipline and start your studies. You also can check some
         hints for a properly use of <strong style={{ color: "#FF4C4C", }}>Binder Rise</strong> on Option button on top left tab.
-      </p>
+      </h3>
     </div>
 
   )
