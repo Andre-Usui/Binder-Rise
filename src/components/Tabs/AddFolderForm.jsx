@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import Select from "../Select.jsx";
 import { colorList } from "../colorList.js";
 import ExampleTab from "./ExampleTab.jsx";
-import { selectBox, selectOuterBox, selectExp, formContainer, formTitle, formColorBox, formLabel, formInput, formSelect, option, formSubmitButton } from './tabsTailwind.js';
+import { selectBox, selectOuterBox, selectExp, formContainer, formTitle, formColorBox, formLabel, formInput, formSelect, formSubmitButton } from './tabsFormTailwind.js';
 
 
 const initialState = {

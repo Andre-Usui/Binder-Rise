@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { addPageForm, formPostLabel, formPostInput, postItemBtn } from "./feedTailwind";
+import { formPostLabel, formPostInput, addPageForm } from "./feedFormTailwind";
+import { postItemBtn } from './feedTailwind.js';
 
 const NewPageForm = ({ discipline, onAdd }) => {
 
@@ -18,7 +19,6 @@ const NewPageForm = ({ discipline, onAdd }) => {
   }
 
   return (
-    <div>
       <form onSubmit={handleSubmitPage} className={addPageForm}>
         <label htmlFor="pageName" className={formPostLabel}>Insert bellow the page title:</label>
 
@@ -38,8 +38,6 @@ const NewPageForm = ({ discipline, onAdd }) => {
         />
 
       </form>
-    </div>
-
   )
 }
 

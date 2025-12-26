@@ -1,7 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import { DbContext } from '../../DbContext.jsx';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { postItemBtn, formPostLabel, formPostInput } from "./feedTailwind";
+import { formPostLabel, formPostInput } from "./feedFormTailwind";
+import { postItemBtn } from './feedTailwind.js';
 
 
 function EditPageForm({ discipline, posts, page, onEdit, handleSetPage, fetchPosts }) {

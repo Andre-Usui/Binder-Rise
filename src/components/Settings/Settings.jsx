@@ -16,7 +16,7 @@ export default function Settings({ handle }) {
     <>
       <div 
         id="settingsContainer"
-        className="w-screen h-[200rem] m-0 px-1 py-5 bg-main-2">
+        className="w-screen h-full m-0 px-1 py-5 bg-main-2">
         <h1 className="text-3xl font-1 text-main-4">Settings</h1>
         <h3>Drag the items to rearrange the discipline&apos;s positions</h3>
         <div id="dragBox">

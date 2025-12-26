@@ -1,6 +1,5 @@
 import { useReducer, useEffect } from "react";
-import { formPost, formPostLabel, formPostInput, formPostBoxBtn, formPostText, formPostBtn } from "./feedTailwind";
-
+import { formPostLabel, formPostInput, formPost,formPostText, formPostBoxBtn, formPostBtn} from "./feedFormTailwind";
 
 const initialState = {
   discipline_id: null,

@@ -56,7 +56,7 @@ function FolderButton({ folder, onEdit, onDelete }) {
         <Button
           buttonClass="
             h-[3rem] min-w-[3rem]
-            px-[1rem]
+            px-4
             bg-main-3 bg-cover bg-center
             border-none cursor-pointer
             lg:h-[1.8rem] lg:text-[0.9rem]

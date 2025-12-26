@@ -7,7 +7,7 @@ import EditPageForm from './EditPageForm.jsx';
 import { DbContext } from '../../DbContext.jsx';
 import { useDisciplines } from '../../DisciplinesContext';
 import React, { useEffect, useReducer, useContext, useCallback } from 'react';
-import { feedBox, pageTop, pageContainer, pageBox, postItemUl, newPostBox, postItemContent, postItemDate, postItemBtnBox, postItemTitle, postItemReference, postItemLi, postItemBtn, pageIconBtnBase } from './feedTailwind.js';
+import { feedBox, pageTop, pageTopPageTitle, pageContainer, pageBox, postItemUl, newPostBox, postItemContent, postItemDate, postItemBtnBox, postItemTitle, postItemReference, postItemLi, postItemBtn, pageIconBtnBase, pageTopDisTitle } from './feedTailwind.js';
 
 const initialState = {
   posts: [],
@@ -252,15 +252,14 @@ function Feed() {
   return (
     <div className={feedBox}>
       <div className={pageTop}>
-        <h1>{state.fullDiscipline.discipline_name}</h1>
+        <h1 className={pageTopDisTitle}>{state.fullDiscipline.discipline_name}</h1>
         <div className={pageBox}>
           <h2>•</h2>
-          <h2>{state.pageName}</h2>
+          <h2 className={pageTopPageTitle}>{state.pageName}</h2>
           <Button
             buttonClass={pageIconBtnBase}
             buttonClick={handleEditPageForm}
             buttonName=""
-            style={{ backgroundImage: 'url(/edit-icon.svg)' }}
           />
         </div>
       </div>

@@ -1,5 +1,5 @@
 import Button from '../Button';
-import { exampleTabBox, exampleTabContainer, headerBtnFolderExp, headerBtnOuterFolderExp, headerBtnOuterExp, headerBtnExp } from './tabsTailwind.js';
+import { exampleTabBox, exampleTabContainer, headerBtnFolderExp, headerBtnOuterFolderExp, headerBtnOuterExp, headerBtnExp } from './tabsFormTailwind.js';
 
 
 export default function ExampleTab({ bg, alt, color, title, folder }) {
