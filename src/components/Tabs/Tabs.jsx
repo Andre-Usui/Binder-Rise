@@ -75,7 +75,7 @@ export default function Tabs() {
           bg-main-4
           flex items-end
           ml-[-8]
-          px-[0.5rem] py-[0.2rem]
+          px-2 py-[0.2rem]
           whitespace-nowrap
           [clip-path:polygon(0%_100%,2%_76%,4%_51%,6%_37%,10%_25%,15%_20%,55%_20%,60%_18%,62%_15%,64%_5%,66%_0%,90%_0%,91%_2%,93%_5%,94%_10%,98%_86%,100%_100%)]
           "
@@ -113,8 +113,8 @@ export default function Tabs() {
         bg-main-4
         flex items-end
         justify-self-end
-        ml-[-1rem] mr-[5rem]
-        px-[0.5rem] 
+        -ml-4 mr-20  
+        px-2 
         [clip-path:polygon(0%_100%,4%_76%,8%_51%,16%_25%,32%_13%,40%_10%,60%_10%,68%_13%,84%_25%,92%_51%,96%_76%,100%_100%)]
       ">
 
