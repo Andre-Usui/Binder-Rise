@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { addPageForm, formPostLabel, formPostInput, postItemBtn } from "./feedTailwind";
 
 const NewPageForm = ({ discipline, onAdd }) => {
 
@@ -11,20 +12,20 @@ const NewPageForm = ({ discipline, onAdd }) => {
     console.log("pagesArray is: ", pagesArray);
     const lastPage = Math.max(...pagesArray.map(p => p.num)) || 0;
     const newPage = { name: title, num: lastPage + 1 };
-    const updatedDiscipline = { ...discipline, pages: [ ...discipline.pages, newPage ] };
+    const updatedDiscipline = { ...discipline, pages: [...discipline.pages, newPage] };
     await onAdd(updatedDiscipline);
     setTitle('');
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmitPage} className="addPageForm">
-        <label htmlFor="pageName" className="formPostLabel">Insert bellow the page title:</label>
+      <form onSubmit={handleSubmitPage} className={addPageForm}>
+        <label htmlFor="pageName" className={formPostLabel}>Insert bellow the page title:</label>
 
         <input
           type="text"
           name="pageName"
-          className="formPostInput"
+          className={formPostInput}
           onChange={(e) => { setTitle(e.target.value) }}
           autoComplete="off"
           required
@@ -33,7 +34,7 @@ const NewPageForm = ({ discipline, onAdd }) => {
         <input
           type="submit"
           value="Submit"
-          className="postItemBtn"
+          className={postItemBtn}
         />
 
       </form>

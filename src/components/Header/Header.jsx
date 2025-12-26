@@ -6,7 +6,6 @@ import AddFolderForm from '../Tabs/AddFolderForm';
 import EditFolderForm from '../Tabs/EditFolderForm';
 import { useDisciplines } from '../../DisciplinesContext';
 import { AnimatePresence, motion } from 'motion/react';
-import './header.css';
 
 function Header() {
   const {
@@ -38,8 +37,8 @@ function Header() {
   return (
     <div id="headerBox"
       className="
-        h-60 w-full grid grid-cols-auto justify-between overflow-visible 
-        relative border-box bg-main-2 bg-waves-2 bg-repeat"
+        min-h-60 w-full grid grid-cols-auto justify-between overflow-visible 
+        relative bg-main-2 bg-waves-2 bg-repeat"
     >
       <h1
       className="pl-16 pt-12 text-main-4 text-[6rem] font-main-2 z-1 font-extrabold"

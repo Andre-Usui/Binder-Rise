@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-
+import { formPost, formPostLabel, formPostInput, formPostBoxBtn, formPostText, formPostBtn } from "./feedTailwind";
 
 const initialState = {
   discipline_id: null,
@@ -50,21 +50,21 @@ function AddPostForm({ discipline_id, page, onAdd }) {
 
 
     const referenceObj = state.reference === ""
-    ? []
-    : state.reference.split(', ').map(pair => {
-      const [ref_name, ref_link] = pair.match(/(.+)\((.+)\)/).slice(1, 3);
-      return { ref_name, ref_link };
-      /*   //matching name(link)
-    Let's break down the regular expression /(.+)\((.+)\)/ used in your code:
+      ? []
+      : state.reference.split(', ').map(pair => {
+        const [ref_name, ref_link] = pair.match(/(.+)\((.+)\)/).slice(1, 3);
+        return { ref_name, ref_link };
+        /*   //matching name(link)
+      Let's break down the regular expression /(.+)\((.+)\)/ used in your code:
+  
+        '/(.+)\((.+)\)/':
+        '/( ... )/' - This indicates the start and end of the regular expression.
+        '.+' - This matches one or more of any character except line breaks.
+        '\(' - This matches the literal opening parenthesis '('.
+        '\)' - This matches the literal closing parenthesis ')'.
+      */
 
-      '/(.+)\((.+)\)/':
-      '/( ... )/' - This indicates the start and end of the regular expression.
-      '.+' - This matches one or more of any character except line breaks.
-      '\(' - This matches the literal opening parenthesis '('.
-      '\)' - This matches the literal closing parenthesis ')'.
-    */
-   
-    }); 
+      });
 
     const newPost = {
       discipline_id: discipline_id,
@@ -72,11 +72,11 @@ function AddPostForm({ discipline_id, page, onAdd }) {
       post_title: state.post_title,
       reference: referenceObj,
       content: state.content,
-      creation_date: new Date().toDateString(), 
+      creation_date: new Date().toDateString(),
       on_edit: false
     };
 
-    await onAdd(newPost); 
+    await onAdd(newPost);
     dispatch({ type: 'resetForm' });
   };
 
@@ -95,40 +95,43 @@ function AddPostForm({ discipline_id, page, onAdd }) {
   return (
     <form
       onSubmit={handleAddSubmit}
-      className="formPost"
+      className={formPost}
     >
-      <label htmlFor="title" className="formPostLabel" >Set the title of the post bellow:</label>
+      <label htmlFor="title" className={formPostLabel} >Set the title of the post bellow:</label>
       <br />
 
       <input
         type="text"
+        id="title"
         name="title"
-        className="formPostInput"
+        className={formPostInput}
         value={state.title}
         onChange={handleInputChange}
         autoComplete="off"
         required
       />
       <br />
-      <label htmlFor="reference" className="formPostLabel" >Set references of the post bellow (separate then by comma + space):</label>
+      <label htmlFor="reference" className={formPostLabel} >Set references of the post bellow (separate then by comma + space):</label>
       <br />
 
       <input
         type="text"
+        id="reference"
         name="reference"
-        className="formPostInput"
+        className={formPostInput}
         value={state.reference}
         onChange={handleInputChange}
         autoComplete="off"
       />
       <br />
 
-      <label htmlFor="content" className="formPostLabel" >Set the content of the post bellow:</label>
+      <label htmlFor="content" className={formPostLabel} >Set the content of the post bellow:</label>
       <br />
 
       <textarea
+        id="content"
         name="content"
-        className="formPostText"
+        className={formPostText}
         value={state.content}
         onChange={handleInputChange}
         autoComplete="off"
@@ -136,11 +139,11 @@ function AddPostForm({ discipline_id, page, onAdd }) {
       />
 
       <br />
-      <div className="formPostBoxBtn">
+      <div className={formPostBoxBtn}>
 
         <input
           type="submit"
-          className="formPostBtn"
+          className={formPostBtn}
           value="Submit"
 
         />

@@ -51,8 +51,8 @@ function FolderButton({ folder, onEdit, onDelete }) {
           z-1
           lg:h-[2.1rem]
           sm:h-[2.4rem]
-          [clip-path: polygon(0% 100%, 2% 76%, 4% 51%, 6% 30%, 10% 10%, 15% 0%, 85% 0, 90% 10%, 94% 30%, 96% 51%, 98% 76%, 100% 100%);]" 
-          style={folder.style2}>
+          [clip-path: polygon(0% 100%, 2% 76%, 4% 51%, 6% 30%, 10% 10%, 15% 0%, 85% 0, 90% 10%, 94% 30%, 96% 51%, 98% 76%, 100% 100%);]"
+        style={folder.style2}>
         <Button
           buttonClass="
             h-[3rem] min-w-[3rem]

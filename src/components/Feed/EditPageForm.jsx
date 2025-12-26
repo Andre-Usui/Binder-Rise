@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import { DbContext } from '../../DbContext.jsx';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { postItemBtn, formPostLabel, formPostInput } from "./feedTailwind";
+
 
 function EditPageForm({ discipline, posts, page, onEdit, handleSetPage, fetchPosts }) {
 
@@ -21,7 +23,7 @@ function EditPageForm({ discipline, posts, page, onEdit, handleSetPage, fetchPos
       setTitle(String(pageName2));
       const p = posts.sort((a, b) => a.position - b.position);
       console.log("useEffect on EditPageForm: pageName: ", pageName, "orderedPosts: ", p)
-      setPostOrder(p); 
+      setPostOrder(p);
     }
   }, [posts, discipline, page]);
 
@@ -31,13 +33,13 @@ function EditPageForm({ discipline, posts, page, onEdit, handleSetPage, fetchPos
     console.log("orderedPost: ", orderedPosts);
     const updatedPosts = orderedPosts.map((post, index) => ({
       ...post,
-      position: index + 1, 
+      position: index + 1,
     }));
     console.log("updatedPosts: ", updatedPosts)
 
     await editPostPosition(updatedPosts)
 
-    setPostOrder(updatedPosts); 
+    setPostOrder(updatedPosts);
   };
 
   const handleSubmitPage = async (e) => {
@@ -52,7 +54,7 @@ function EditPageForm({ discipline, posts, page, onEdit, handleSetPage, fetchPos
     await onEdit(editedPages);
     setTitle('');
   };
-  
+
   const handleDeletePage = async (e) => {
     e.preventDefault();
     await deletePage(discipline, page);
@@ -106,32 +108,33 @@ function EditPageForm({ discipline, posts, page, onEdit, handleSetPage, fetchPos
   };
 
   return (
-    <div> 
+    <div>
       <form onSubmit={handleSubmitPage} id="addPageForm" className="w-4/5 m-auto p-4 border-2 border-main-4 rounded-lg bg-main-1 ">
-        <label className="formPostLabel" htmlFor="pageName">Insert below the page title:</label>
-        < br/> < br/>
+        <label className={formPostLabel} htmlFor="pageName">Insert below the page title:</label>
+        < br /> < br />
         <input
           type="text"
+          id="pageName"
           name="pageName"
-          className="formPostInput"
+          className={formPostInput}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           autoComplete="off"
           required
         />
         <p>Drag to set posts positions: </p>
-        
+
         <PostList />
 
         <input
           type="submit"
           value="Submit"
-          className="postItemBtn"
+          className={postItemBtn}
         />
         <input
           type="button"
           value="Delete page"
-          className="postItemBtn"
+          className={postItemBtn}
           onClick={handleDeletePage}
         />
       </form>

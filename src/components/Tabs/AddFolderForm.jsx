@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import Select from "../Select.jsx";
 import { colorList } from "../colorList.js";
 import ExampleTab from "./ExampleTab.jsx";
-import{selectBox, selectOuterBox, selectExp, formColorBox, formLabel, formInput, formSelect, option, formSubmitButton} from './tabsTailwind.js';
+import { selectBox, selectOuterBox, selectExp, formContainer, formTitle, formColorBox, formLabel, formInput, formSelect, option, formSubmitButton } from './tabsTailwind.js';
 
 
 const initialState = {
@@ -89,16 +89,11 @@ function AddFolderForm({ id, handle }) {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="
-            min-h-[40vh] w-full
-            p-[1rem_2rem_1rem_3rem]
-            bg-main-4
-            lg:w-screen lg:h-full lg:px-8
-            sm:w-screen sm:h-full"
+        className={formContainer}
         id={id}
       >
-        <h2>Add a new Folder</h2>
-        <label htmlFor="title">Insert the title of the Folder:</label> <br />
+        <h1 className={formTitle}>Add a new Folder</h1>
+        <label htmlFor="title" className={formLabel}>Insert the title of the Folder:</label>
         <input
           type="text"
           name="title"
@@ -109,22 +104,10 @@ function AddFolderForm({ id, handle }) {
           required
         />
 
-        <br /><br />
-        <label htmlFor="pageName">Insert the first page name of the Folder:</label> <br />
-        <input
-          type="text"
-          name="pageName"
-          className={formInput}
-          value={state.pageName}
-          onChange={handleInputChange}
-          autoComplete="off"
-          required
-        />
-
         <div className={formColorBox}>
           <div className={selectBox}>
             <label htmlFor="bgColor" className={formLabel}>Set the color of the Folder&apos;s Tab:</label>
-            <br />
+
             <div className={selectOuterBox}>
               <div className={selectExp} style={{ backgroundColor: `${state.bgColor}` }}></div>
               <Select
@@ -136,12 +119,12 @@ function AddFolderForm({ id, handle }) {
                 stateColor={state.bgColor}
               />
             </div>
-            <br />
+
           </div>
 
           <div className={selectBox}>
-            <label htmlFor="color" className={formLabel}>Set the font color of the Folder's Tab:</label>
-            <br />
+            <label htmlFor="color" className={formLabel}>Set the font color of the Folder&apos;s Tab:</label>
+
             <div className={selectOuterBox}>
               <div className={selectExp} style={{ backgroundColor: `${state.color}` }}></div>
               <Select
@@ -154,12 +137,12 @@ function AddFolderForm({ id, handle }) {
 
               />
             </div>
-            <br />
+
           </div>
 
           <div className={selectBox}>
             <label htmlFor="altColor" className={formLabel}>Set the detail color of the Folder's Tab:</label>
-            <br />
+
             <div className={selectOuterBox}>
               <div className={selectExp} style={{ backgroundColor: `${state.altColor}` }}></div>
               <Select
@@ -171,7 +154,7 @@ function AddFolderForm({ id, handle }) {
                 stateColor={state.altColor}
               />
             </div>
-            <br />
+
           </div>
         </div>
 
@@ -182,14 +165,11 @@ function AddFolderForm({ id, handle }) {
           title={state.title}
           folder={true}
         />
-
-        <div className="buttonFormBox">
           <input
             type="submit"
             className={formSubmitButton}
             value="Submit"
           />
-        </div>
       </form>
     </div >
   )

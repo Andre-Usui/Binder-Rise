@@ -9,5 +9,7 @@
     2.1.6 [x] addForm
     2.1.7 [x] editForm
     2.1.8 [x] disciplineForm
-  2.2 [ ] Upgrade para Tailwind do Body
+    2.1.9 [ ] Finish tabsTailwind.js to tailwind class management
+  2.2 [x] Upgrade para Tailwind do Body
   2.3 [ ] Upgrade para Tailwind do Footer
+  2.4 [x] Upgrade para Tailwindo no Landing

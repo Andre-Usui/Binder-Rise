@@ -7,7 +7,7 @@ import EditPageForm from './EditPageForm.jsx';
 import { DbContext } from '../../DbContext.jsx';
 import { useDisciplines } from '../../DisciplinesContext';
 import React, { useEffect, useReducer, useContext, useCallback } from 'react';
-import "./feed.css";
+import { feedBox, pageTop, pageContainer, pageBox, postItemUl, newPostBox, postItemContent, postItemDate, postItemBtnBox, postItemTitle, postItemReference, postItemLi, postItemBtn, pageIconBtnBase } from './feedTailwind.js';
 
 const initialState = {
   posts: [],
@@ -213,26 +213,26 @@ function Feed() {
   const listFeed = state.posts.map((postItem, index) => {
     return (
       <React.Fragment key={index}>
-        <li className="postItemLi">
-          <h2 className="postItemTitle">{postItem.post_title}</h2>
+        <li className={postItemLi}>
+          <h2 className={postItemTitle}>{postItem.post_title}</h2>
           <ul>
             {postItem.reference.map((r, index) =>
-              <li key={index} className="postItemReference" >
+              <li key={index} className={postItemReference} >
                 <a href={r.ref_link}>{r.ref_name}</a>
               </li>
             )}
           </ul>
-          <p className="postItemContent">{postItem.content}</p>
-          <p className="postItemDate">creation: {postItem.creation_date}</p>
-          <div className="postItemBtnBox">
+          <p className={postItemContent}>{postItem.content}</p>
+          <p className={postItemDate}>creation: {postItem.creation_date}</p>
+          <div className={postItemBtnBox}>
             <Button
               buttonClick={() => handleOnEditForm(postItem)}
-              buttonClass="postItemBtn"
+              buttonClass={postItemBtn}
               buttonName="Edit"
             />
             <Button
               buttonClick={() => handleDeletePost(postItem.post_id)}
-              buttonClass="postItemBtn"
+              buttonClass={postItemBtn}
               buttonName="Delete"
             />
           </div>
@@ -250,16 +250,17 @@ function Feed() {
   // #### return
 
   return (
-    <div className="feedBox">
-      <div className="pageTop">
+    <div className={feedBox}>
+      <div className={pageTop}>
         <h1>{state.fullDiscipline.discipline_name}</h1>
-        <div className="pageBox">
+        <div className={pageBox}>
           <h2>•</h2>
           <h2>{state.pageName}</h2>
           <Button
-            buttonClass="editPageBtn"
+            buttonClass={pageIconBtnBase}
             buttonClick={handleEditPageForm}
             buttonName=""
+            style={{ backgroundImage: 'url(/edit-icon.svg)' }}
           />
         </div>
       </div>
@@ -272,7 +273,7 @@ function Feed() {
         fetchPosts={fetchPosts}
       />)}
       {!state.editPageForm && (
-        <div className="pageContainer">
+        <div className={pageContainer}>
           <Pages
             pages={state.listPages}
             handleSetPage={handleSetPage}
@@ -286,20 +287,20 @@ function Feed() {
             />)}
 
 
-          <ul className="postItemUl">
+          <ul className={postItemUl}>
 
             {listFeed}
 
           </ul>
-          <div className='postItemBtnBox' style={{ width: "90%", marginTop: "0" }}>
+          <div className={postItemBtnBox} style={{ width: "90%", marginTop: "0" }}>
             <Button
               buttonName="New Post" //TODO - if addPost is on, generate a postForm
               buttonClick={handleNewPostForm}
-              buttonClass="postItemBtn"
+              buttonClass={postItemBtn}
               style={{ marginRight: '10vw' }}
             />
           </div>
-          <div className="newPostBox">
+          <div className={newPostBox}>
             {state.newPostForm && (
               <AddPostForm
                 discipline_id={disc ? disc.discipline_id : ''}

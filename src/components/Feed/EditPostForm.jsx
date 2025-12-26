@@ -1,4 +1,6 @@
 import { useReducer, useEffect } from "react";
+import { formPost, formPostLabel, formPostInput, formPostBoxBtn, formPostText, formPostBtn } from "./feedTailwind";
+
 
 const initialState = {
   discipline_id: null,
@@ -115,15 +117,16 @@ function EditPostForm({ discipline_id, page, post, onEdit }) {
   return (
     <form
       onSubmit={handleEditSubmit}
-      className="formPost"
+      className={formPost}
     >
-      <label htmlFor="title" className="formPostLabel" >Set the title of the post bellow:</label>
+      <label htmlFor="title" className={formPostLabel} >Set the title of the post bellow:</label>
       <br />
 
       <input
         type="text"
+        id="title"
         name="title"
-        className="formPostInput"
+        className={formPostInput}
         value={state.post_title}
         onChange={handleInputChange}
         wrap="hard"
@@ -131,25 +134,27 @@ function EditPostForm({ discipline_id, page, post, onEdit }) {
         required
       />
       <br />
-      <label htmlFor="reference" className="formPostLabel">Set references of the post bellow (separate then by comma + space ):</label>
+      <label htmlFor="reference" className={formPostLabel}>Set references of the post bellow (separate then by comma + space ):</label>
       <br />
 
       <input
         type="text"
+        id="reference"
         name="reference"
-        className="formPostInput"
+        className={formPostInput}
         value={state.reference}
         onChange={handleInputChange}
         autoComplete="off"
       />
       <br />
 
-      <label htmlFor="textArea" className="formPostLabel" >Set the content of the post bellow:</label>
+      <label htmlFor="textArea" className={formPostLabel} >Set the content of the post bellow:</label>
       <br />
 
       <textarea
+        id="content"
         name="content"
-        className="formPostText"
+        className={formPostText}
         onChange={handleInputChange}
         value={state.content}
         autoComplete="off"
@@ -157,11 +162,11 @@ function EditPostForm({ discipline_id, page, post, onEdit }) {
       />
 
       <br />
-      <div className="formPostBoxBtn">
+      <div className={formPostBoxBtn}>
 
         <input
           type="submit"
-          className="formPostBtn"
+          className={formPostBtn}
           value="Submit"
         />
       </div>

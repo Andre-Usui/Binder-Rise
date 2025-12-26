@@ -2,8 +2,6 @@ import DisciplineButton from './DisciplineButton';
 import FolderButton from './FolderButton';
 import Button from '../Button';
 import { useDisciplines } from '../../DisciplinesContext';
-import './tabs.css';
-
 
 export default function Tabs() {
 
@@ -21,11 +19,11 @@ export default function Tabs() {
     handleSetFolder,
     handleDeleteFolder,
   } = useDisciplines();
-
-  console.log("folders is: ", folders);
-  console.log("disc is: ", disc);
-  console.log("disciplines is: ", disciplines);
-
+  /*
+    console.log("folders is: ", folders);
+    console.log("disc is: ", disc);
+    console.log("disciplines is: ", disciplines);
+  */
   return (
     <div id="headerTabs"
       className="
@@ -56,7 +54,7 @@ export default function Tabs() {
             border-none
             cursor-pointer
             text-main-3"
-          buttonClick={() => toggleSettingsForm()}
+          buttonClick={toggleSettingsForm}
           buttonName=""
         />
       </div>
@@ -96,7 +94,7 @@ export default function Tabs() {
           font-bold
           [clip-path:polygon(0%_100%,2%_76%,4%_51%,6%_37%,10%_25%,15%_20%,55%_20%,60%_18%,62%_15%,64%_5%,66%_0%,90%_0%,91%_2%,93%_5%,94%_10%,98%_86%,100%_100%)]
   "
-          buttonClick={() => toggleAddFolderForm()}
+          buttonClick={toggleAddFolderForm}
           buttonName=""
         />
       </div>

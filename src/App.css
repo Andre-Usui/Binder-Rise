@@ -21,25 +21,30 @@
 
 /**** ScrollBar ***/
 /******************/
+@layer utilities {
+  .scrollbar-custom {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #FFDE4D #FF4C4C;
+  }
 
-::-webkit-scrollbar {
-  height: 1.2rem;
-  width: 1.2rem;
-  background: var(--main-palette-4);
-}
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 1.2rem;
+    height: 1.2rem;
+    background: #FF4C4C;
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--main-palette-4);
-  margin-block: 20px;
-}
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: #FF4C4C;
+    margin-block: 20px;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--main-palette-2);
-  border: .28rem solid var(--main-palette-4);
-  border-radius: 5rem;
-}
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background: #FFDE4D;
+    border: 0.28rem solid #FF4C4C;
+    border-radius: 5rem;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #FFB22C !important;
-
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background: #FFB22C;
+  }
 }

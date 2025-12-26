@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import Option from './Option.jsx';
 
-export default function Select({ arrayList, name, form, className, onChange, stateColor }) {
+export default function Select({ arrayList, name, form, className, onChange, stateColor, id }) {
 
   const formRefs = useRef({});
 
@@ -23,7 +23,7 @@ export default function Select({ arrayList, name, form, className, onChange, sta
         key={item.name + "key"}
         value={item.value}
         name={item.name}
-        selected = {selected}
+        selected={selected}
       />
     )
   })
@@ -31,6 +31,7 @@ export default function Select({ arrayList, name, form, className, onChange, sta
   return (
 
     <select
+      id={id}
       name={name}
       form={form}
       className={className}

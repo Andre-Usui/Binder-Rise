@@ -99,11 +99,18 @@ export const DisciplinesProvider = ({ children }) => {
   }, [fetchTab])
 
   // Form toggling helper
+
   const toggleForm = useCallback((formType) => {
-    setForms(prev => ({
-      ...prev,
-      [formType]: !prev[formType]
-    }));
+    console.log(`Toggling form: ${formType}`);
+    setForms(prev => {
+      const isCurrentlyOpen = prev[formType];
+      console.log(prev);
+      // Fecha todos e abre apenas o selecionado (ou fecha tudo se já estava aberto)
+      return Object.keys(prev).reduce((acc, key) => {
+        acc[key] = key === formType ? !isCurrentlyOpen : false;
+        return acc;
+      }, {});
+    });
   }, []);
 
   // Handlers
