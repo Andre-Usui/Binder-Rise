@@ -113,12 +113,22 @@ export const DisciplinesProvider = ({ children }) => {
     });
   }, []);
 
+  const toggleAllFormFalse = useCallback(() => {
+    setForms({
+      addForm: false,
+      editForm: false,
+      addFolderForm: false,
+      editFolderForm: false,
+      settingsForm: false
+    });
+  }, []);
+
   // Handlers
   const handleSetDiscipline = useCallback(async (dis) => {
-    Object.keys(forms).forEach(form => toggleForm(form));
+    toggleAllFormFalse()
     setDisc(dis);
     setPage(1);
-  }, [forms, toggleForm, setDisc, setPage]);
+  }, [setDisc, setPage, toggleAllFormFalse]);
 
   const handleAddDiscipline = useCallback(async (newDiscipline) => {
     try {

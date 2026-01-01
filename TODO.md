@@ -15,9 +15,8 @@
   2.4 [x] Upgrade para Tailwind no Landing
 3 [ ] Ajustando arquitetura do software em pastas e arquivos tailwind.js
   3.1 [x] Polindo Landing Container
-  3.2 [ ] Polindo Settings Container
-  3.3 [x] Polindo Tabs Container
-  3.4 [ ] Polindo Header Container
-  3.5 [x] Polindo Settings Container
-  3.6 [x] Polindo Fedd Container
+  3.2 [x] Polindo Tabs Container
+  3.3 [ ] Polindo Header Container
+  3.4 [x] Polindo Settings Container
+  3.5 [x] Polindo Feed Container
 4 [ ] !Ajuste na seleção de Disciplina e Pasta em Context!
