@@ -6,6 +6,7 @@ import AddFolderForm from '../Tabs/AddFolderForm';
 import EditFolderForm from '../Tabs/EditFolderForm';
 import { useDisciplines } from '../../DisciplinesContext';
 import { AnimatePresence, motion } from 'motion/react';
+import { headerBox, headerDivisor, headerLogo } from './headerTailwind';
 
 function Header() {
   const {
@@ -36,15 +37,13 @@ function Header() {
 
   return (
     <div id="headerBox"
-      className="
-        min-h-60 w-full grid grid-cols-auto justify-between overflow-visible 
-        relative bg-main-2 bg-waves-2 bg-repeat"
+      className={headerBox}
     >
       <h1
-      className="pl-16 pt-12 text-main-4 text-[6rem] font-main-2 z-1 font-extrabold"
+      className={headerLogo}
       >Binder Rise</h1>
       <Tabs />
-      <div id="headerDivisor" className="bg-main-4 h-2 w-screen"></div>
+      <div id="headerDivisor" className={headerDivisor}></div>
       <AnimatePresence mode="sync">
         {forms.settingsForm && (
           <motion.div

@@ -16,7 +16,7 @@
 3 [ ] Ajustando arquitetura do software em pastas e arquivos tailwind.js
   3.1 [x] Polindo Landing Container
   3.2 [x] Polindo Tabs Container
-  3.3 [ ] Polindo Header Container
+  3.3 [x] Polindo Header Container
   3.4 [x] Polindo Settings Container
   3.5 [x] Polindo Feed Container
 4 [ ] !Ajuste na seleção de Disciplina e Pasta em Context!
