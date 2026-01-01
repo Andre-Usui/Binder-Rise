@@ -18,6 +18,6 @@
   3.2 [ ] Polindo Settings Container
   3.3 [x] Polindo Tabs Container
   3.4 [ ] Polindo Header Container
-  3.5 [ ] Polindo Settings Container
+  3.5 [x] Polindo Settings Container
   3.6 [x] Polindo Fedd Container
 4 [ ] !Ajuste na seleção de Disciplina e Pasta em Context!

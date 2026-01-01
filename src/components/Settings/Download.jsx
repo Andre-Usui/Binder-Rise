@@ -1,6 +1,7 @@
 import { DbContext } from '../../DbContext.jsx'
 import { useContext } from 'react';
 import Button from '../Button.jsx';
+import { settingsButton } from './settingsTailwind.js';
 
 
 export default function Download() {
@@ -18,7 +19,7 @@ export default function Download() {
 
   return (
     <Button
-      buttonClass="settingsButton"
+      buttonClass={settingsButton}
       buttonName="Download Binder's JSON"
       buttonClick={handleDownload}
     />

@@ -1,6 +1,7 @@
 import { DbContext } from '../../DbContext.jsx'
 import { useContext, useState } from 'react';
 import Button from '../Button.jsx';
+import { settingsButton } from './settingsTailwind.js';
 
 
 export default function Upload() {
@@ -38,13 +39,12 @@ export default function Upload() {
 
   return (
     <>
-    
-    <input className = "settingsButton" type="file" onChange={handleFileChange} accept=".json" />
-    <Button
-      buttonClass="settingsButton"
-      buttonName="Upload Binder's JSON"
-      buttonClick={handleUpload}
-    />
+      <input className={settingsButton} type="file" onChange={handleFileChange} accept=".json" />
+      <Button
+        buttonClass={settingsButton}
+        buttonName="Upload Binder's JSON"
+        buttonClick={handleUpload}
+      />
     </>
   )
 }

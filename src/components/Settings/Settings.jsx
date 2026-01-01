@@ -3,7 +3,7 @@ import Upload from './Upload.jsx';
 import HelpItem from "./HelpItem.jsx";
 import DragDisciplines from "./DragDisciplines.jsx";
 import Button from "../Button.jsx";
-import "./settings.css"
+import { settingsButton, settingsContainer, settingsContainerTitle, dragContainer, helpContainer } from './settingsTailwind.js';
 
 export default function Settings({ handle }) {
 
@@ -14,15 +14,15 @@ export default function Settings({ handle }) {
 
   return (
     <>
-      <div 
+      <div
         id="settingsContainer"
-        className="w-screen h-full m-0 px-1 py-5 bg-main-2">
-        <h1 className="text-3xl font-1 text-main-4">Settings</h1>
+        className={settingsContainer}>
+        <h1 className={settingsContainerTitle}>Settings</h1>
         <h3>Drag the items to rearrange the discipline&apos;s positions</h3>
-        <div id="dragBox">
+        <div id="dragBox" className={dragContainer}>
           <DragDisciplines />
           <Button
-            buttonClass="min-w-full m-1 p-1 bg-main-4 text-main-1 border-main-2 border-2 rounded-sm text-sm cursor-pointer"
+            buttonClass={settingsButton}
             buttonName="Submit"
             buttonClick={handleSubmit}
           />
@@ -30,7 +30,7 @@ export default function Settings({ handle }) {
           <Upload />
         </div>
         <h3>If you need some help to properly use the Binder Rise, you can find bellow some hints:</h3>
-        <div className="helpContainer">
+        <div className={helpContainer}>
           <HelpItem
             title="How to create a Discipline's tab"
             description="There is a '+' button on the discipline's tab, here you can: "

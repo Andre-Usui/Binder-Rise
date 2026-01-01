@@ -65,7 +65,7 @@ export default function DragDisciplines() {
         {(provided) => (
           <ul
             id="dragableUl"
-            className="mt-4 p-0 w-32 flex flex-col 
+            className="mt-4 p-0 min-w-40 max-w-80 flex flex-col 
                         justify-evenly list-none"
             {...provided.droppableProps} ref={provided.innerRef}>
             {disOrder.map((dis, index) => (
